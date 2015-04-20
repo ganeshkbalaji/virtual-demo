@@ -48,19 +48,12 @@ request.onload = function() {
                 boost += array[i];
             }
             boost = boost / array.length;
-            // console.log(boost);
       };
 
-      // $('body').append('<button onclick="play()">play music</button>');
-
-      // $('body').append($('<div onclick="body" id="play" style="width: ' + $(window).width() + 'px; height: ' + $(window).height() + 'px;"><div id="play_link"></div></div>'));
-      // $('#play_link').css('top', ($(window).height() / 2 - $('#play_link').height() / 2) + 'px');
-      // $('#play_link').css('left', ($(window).width() / 2 - $('#play_link').width() / 2) + 'px');
-      // $('#play').fadeIn();
+      // source.start(0);
     }
   );
-  $('body').on('click', function(){
-    console.log("test");
+  $('body').on('click',function(){
     source.start(0);
   });
 };
