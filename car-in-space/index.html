@@ -34,6 +34,8 @@
 
     var clock = new THREE.Clock();
 
+    var groovinCar;
+
     var ambient;
 
     init();
@@ -73,7 +75,39 @@
       controls.noZoom = true;
       controls.noPan = true;
 
-//begin add
+      // load car
+
+    loader = new THREE.JSONLoader();
+    // var meshCar;
+
+
+    loader.load('car.js', function (geometry, materials) {
+      // debugger
+      var material = new THREE.MeshLambertMaterial({
+        map: THREE.ImageUtils.loadTexture('gtare.jpg'),
+        colorAmbient: [0.480000026226044, 0.480000026226044, 0.480000026226044],
+        colorDiffuse: [0.480000026226044, 0.480000026226044, 0.480000026226044],
+        colorSpecular: [0.8999999761581421, 0.8999999761581421, 0.8999999761581421]
+      });
+
+      // debugger
+
+      groovinCar = new THREE.Mesh(
+        geometry,
+        material
+      );
+
+      groovinCar.receiveShadow = true;
+      groovinCar.castShadow = true;
+      // carmesh.rotation.y = -Math.PI/5;
+
+      scene.add(groovinCar);
+
+    });
+
+
+
+        //begin add
 
         // world
 
@@ -83,7 +117,7 @@
         var cubematerial = new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0xffffff, shininess: 50 } );
 
 
-        for ( var i = 0; i < 1000; i ++ ) {
+        for ( var i = 0; i < 3000; i ++ ) {
 
           var cubemesh = new THREE.Mesh( cube, cubematerial );
 
@@ -102,27 +136,27 @@
 
         }
 
-        var sphere = new THREE.SphereGeometry(100,30,30);
-        var sphereMaterial = new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0xffffff, shininess: 50 } );
+        // var sphere = new THREE.SphereGeometry(100,30,30);
+        // var sphereMaterial = new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0xffffff, shininess: 50 } );
 
-        for ( var i = 0; i < 1000; i ++ ) {
+        // for ( var i = 0; i < 1000; i ++ ) {
 
-          var sphereMesh = new THREE.Mesh( sphere, sphereMaterial );
+        //   var sphereMesh = new THREE.Mesh( sphere, sphereMaterial );
 
-          sphereMesh.position.x = 8000 * ( 2.0 * Math.random() - 1.0 );
-          sphereMesh.position.y = 8000 * ( 2.0 * Math.random() - 1.0 );
-          sphereMesh.position.z = 8000 * ( 2.0 * Math.random() - 1.0 );
+        //   sphereMesh.position.x = 8000 * ( 2.0 * Math.random() - 1.0 );
+        //   sphereMesh.position.y = 8000 * ( 2.0 * Math.random() - 1.0 );
+        //   sphereMesh.position.z = 8000 * ( 2.0 * Math.random() - 1.0 );
 
-          sphereMesh.rotation.x = Math.random() * Math.PI;
-          sphereMesh.rotation.y = Math.random() * Math.PI;
-          sphereMesh.rotation.z = Math.random() * Math.PI;
+        //   sphereMesh.rotation.x = Math.random() * Math.PI;
+        //   sphereMesh.rotation.y = Math.random() * Math.PI;
+        //   sphereMesh.rotation.z = Math.random() * Math.PI;
 
-          sphereMesh.matrixAutoUpdate = false;
-          sphereMesh.updateMatrix();
+        //   sphereMesh.matrixAutoUpdate = false;
+        //   sphereMesh.updateMatrix();
 
-          scene.add( sphereMesh );
+        //   scene.add( sphereMesh );
 
-        }
+        // }
 
 
         ambient = new THREE.AmbientLight( 0xffffff );
@@ -258,7 +292,14 @@
 
       timer = clock.getElapsedTime();
 
-      console.log(timer);
+      groovinCar.rotation.y = 1.5;
+      groovinCar.position.x += 5;
+
+      camera.position.x +=5;
+
+      console.log(groovinCar.rotation.y);
+
+      // console.log(timer);
 
       if (Math.floor(timer % 2) === 0){
         ambient.color.setHSL( 0.5, 0.5, 0.2 );
@@ -269,8 +310,8 @@
 
       // ambient.color.setHSL( )
 
-      camera.position.x -= 1;
-      camera.position.y += 1;    
+      // camera.position.x -= 1;
+      // camera.position.y -= 10;    
 
       update(clock.getDelta());
       render(clock.getDelta());
