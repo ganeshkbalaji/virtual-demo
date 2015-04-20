@@ -48,11 +48,13 @@ request.onload = function() {
                 boost += array[i];
             }
             boost = boost / array.length;
-            // console.log(boost);
       };
-      source.start(0);
+      // source.start(0);
     }
   );
+  $('body').on('click',function(){
+    source.start(0);
+  });
 };
 
 request.send();
