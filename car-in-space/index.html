@@ -121,11 +121,11 @@
         var cubematerial = new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0xffffff, shininess: 50 } );
 
 
-        for ( var i = 0; i < 3000; i ++ ) {
+        for ( var i = 0; i < 4000; i ++ ) {
 
           var cubemesh = new THREE.Mesh( cube, cubematerial );
 
-          cubemesh.position.x = 4000 * ( 2.0 * Math.random() - 1.0 );
+          cubemesh.position.x = 5000 * ( 2.0 * Math.random() - 1.0 );
           cubemesh.position.y = 8000 * ( 2.0 * Math.random() - 1.0 );
           cubemesh.position.z = 20000 * ( 2.0 * Math.random() - 1.0 );
 
