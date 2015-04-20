@@ -75,7 +75,7 @@ request.onload = function() {
       console.log("clearing interval");
 
       clearInterval(interval);
-      $('body').append('<button onclick="startVR()">Are you ready to get your mind blown?! Go ahead!!!</button>');
+      $('body').append('<button id="startButton" onclick="startVR()">Are you ready to get your mind blown?! Go ahead!!!</button>');
 
   //     // popup
   //     $('body').append($('<div onclick="play();" id="play" style="width: ' + $(window).width() + 'px; height: ' + $(window).height() + 'px;"><div id="play_link"></div></div>'));
@@ -106,9 +106,13 @@ request.send();
 // //   }
 // // }
 
-function startVR() {
-  // $('#play').fadeOut('normal', function() {
-  //   $(this).remove();
-  // });
-  source.start(0);
-}
+// function startVR() {
+//   // $('#play').fadeOut('normal', function() {
+//   //   $(this).remove();
+//   // });
+
+//   source.start(0);
+// }
+
+
+
