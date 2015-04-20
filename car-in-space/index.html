@@ -99,8 +99,8 @@
 
       groovinCar.receiveShadow = true;
       groovinCar.castShadow = true;
-      // groovinCar.rotation.x = 10
-      groovinCar.position.y -=100;
+      // groovinCar.rotation.y =;
+      groovinCar.position.y -=200;
       // carmesh.rotation.y = -Math.PI/5;
       // groovinCar.position.x +=50;
 
@@ -139,81 +139,12 @@
 
         }
 
-        // var sphere = new THREE.SphereGeometry(100,30,30);
-        // var sphereMaterial = new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0xffffff, shininess: 50 } );
-
-        // for ( var i = 0; i < 1000; i ++ ) {
-
-        //   var sphereMesh = new THREE.Mesh( sphere, sphereMaterial );
-
-        //   sphereMesh.position.x = 8000 * ( 2.0 * Math.random() - 1.0 );
-        //   sphereMesh.position.y = 8000 * ( 2.0 * Math.random() - 1.0 );
-        //   sphereMesh.position.z = 8000 * ( 2.0 * Math.random() - 1.0 );
-
-        //   sphereMesh.rotation.x = Math.random() * Math.PI;
-        //   sphereMesh.rotation.y = Math.random() * Math.PI;
-        //   sphereMesh.rotation.z = Math.random() * Math.PI;
-
-        //   sphereMesh.matrixAutoUpdate = false;
-        //   sphereMesh.updateMatrix();
-
-        //   scene.add( sphereMesh );
-
-        // }
-
 
         ambient = new THREE.AmbientLight( 0xffffff );
         ambient.color.setHSL( 0.5, 0.5, 0.2 );
         scene.add( ambient );
 
-
-        // var dirLight = new THREE.DirectionalLight( 0xffffff, 0.125 );
-        // dirLight.position.set( 0, -1, 0 ).normalize();
-        // scene.add( dirLight );
-
-        // dirLight.color.setHSL( 0.1, 0.7, 0.5 );
-
-        // lens flares
-
-        // var textureFlare0 = THREE.ImageUtils.loadTexture( "lensflare0.png" );
-        // var textureFlare2 = THREE.ImageUtils.loadTexture( "lensflare2.png" );
-        // var textureFlare3 = THREE.ImageUtils.loadTexture( "lensflare3.png" );
-
-        // addLight( 0.55, 0.9, 0.5, 5000, 0, -1000 );
-        // addLight( 0.08, 0.8, 0.5,    0, 0, -1000 );
-        // addLight( 0.995, 0.5, 0.9, 5000, 5000, -1000 );
-
-        // function addLight( h, s, l, x, y, z ) {
-
-        //   var light = new THREE.PointLight( 0xffffff, 1.5, 4500 );
-        //   light.color.setHSL( h, s, l );
-        //   light.position.set( x, y, z );
-        //   scene.add( light );
-
-        //   var flareColor = new THREE.Color( 0xffffff );
-        //   flareColor.setHSL( h, s, l + 0.5 );
-
-        //   var lensFlare = new THREE.LensFlare( textureFlare0, 700, 0.0, THREE.AdditiveBlending, flareColor );
-
-        //   lensFlare.add( textureFlare2, 512, 0.0, THREE.AdditiveBlending );
-        //   lensFlare.add( textureFlare2, 512, 0.0, THREE.AdditiveBlending );
-        //   lensFlare.add( textureFlare2, 512, 0.0, THREE.AdditiveBlending );
-
-        //   lensFlare.add( textureFlare3, 60, 0.6, THREE.AdditiveBlending );
-        //   lensFlare.add( textureFlare3, 70, 0.7, THREE.AdditiveBlending );
-        //   lensFlare.add( textureFlare3, 120, 0.9, THREE.AdditiveBlending );
-        //   lensFlare.add( textureFlare3, 70, 1.0, THREE.AdditiveBlending );
-
-        //   lensFlare.customUpdateCallback = lensFlareUpdateCallback;
-        //   lensFlare.position.copy( light.position );
-
-        //   scene.add( lensFlare );
-
-        // }
-
-
-
-// end add
+  // end add
 
       function setOrientationControls(e) {
         if (!e.alpha) {
@@ -295,10 +226,9 @@
 
       timer = clock.getElapsedTime();
 
-      groovinCar.rotation.y = 1.5;
       groovinCar.position.z += 5;
 
-      camera.position.z +=5;
+      // camera.position.z +=5;
 
       console.log(groovinCar.rotation.y);
 
