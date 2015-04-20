@@ -2,15 +2,18 @@ function startVR() {
   // $('#play').fadeOut('normal', function() {
   //   $(this).remove();
   // });
-
-	init();
-	animate();
-	
-  source.start(0);
-
+  
   $('div#info').remove();
   $('button#startButton').remove();
+
+
+  source.start(0);
+
 }
+
+ 
+  
+
 
 var camera, scene, renderer;
 var effect, controls;
@@ -21,6 +24,9 @@ var ceilingRoom2;
 var loader = new THREE.JSONLoader();
 
 var clock = new THREE.Clock();
+
+ init();
+  animate();
 
 function init() {
 	
