@@ -75,7 +75,7 @@ request.onload = function() {
       console.log("clearing interval");
 
       clearInterval(interval);
-      $('body').append('<button onclick="playMusic()">play</button>');
+      $('body').append('<button onclick="startVR()">Are you ready to get your mind blown?! Go ahead!!!</button>');
 
   //     // popup
   //     $('body').append($('<div onclick="play();" id="play" style="width: ' + $(window).width() + 'px; height: ' + $(window).height() + 'px;"><div id="play_link"></div></div>'));
@@ -106,9 +106,9 @@ request.send();
 // //   }
 // // }
 
-function playMusic() {
-  $('#play').fadeOut('normal', function() {
-    $(this).remove();
-  });
+function startVR() {
+  // $('#play').fadeOut('normal', function() {
+  //   $(this).remove();
+  // });
   source.start(0);
 }

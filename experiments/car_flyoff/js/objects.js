@@ -145,4 +145,4 @@
 
     ceilingRoom2 = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(119, 5, 123, 1, 1, 1),
     	[ customMaterial.woodCeiling ] );
-    ceilingRoom2.position.set(-290,32.5,101);
+    ceilingRoom2.position.set(-90,32.5,101);
