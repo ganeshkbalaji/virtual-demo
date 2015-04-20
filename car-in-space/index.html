@@ -99,6 +99,8 @@
 
       groovinCar.receiveShadow = true;
       groovinCar.castShadow = true;
+      // groovinCar.rotation.x = 10
+      groovinCar.position.y -=100;
       // carmesh.rotation.y = -Math.PI/5;
       // groovinCar.position.x +=50;
 
@@ -294,9 +296,9 @@
       timer = clock.getElapsedTime();
 
       groovinCar.rotation.y = 1.5;
-      groovinCar.position.x += 5;
+      groovinCar.position.z += 5;
 
-      camera.position.x +=5;
+      camera.position.z +=5;
 
       console.log(groovinCar.rotation.y);
 
