@@ -49,6 +49,7 @@ request.onload = function() {
             }
             boost = boost / array.length;
       };
+
       // source.start(0);
     }
   );
