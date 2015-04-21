@@ -188,7 +188,7 @@ function animate(t) {
           ambient.color.setHSL( 0.5, 0.5, 0.2 );
           // scene.add( ambient );
 
-          var dirLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+          var dirLight = new THREE.DirectionalLight( 0xffffff, 0.05 );
           dirLight.position.set( -50, -20, 100 ).normalize();
           scene.add( dirLight );
 
