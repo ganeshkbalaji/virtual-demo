@@ -3,6 +3,7 @@
 <head>
   <title>Cardboard Example</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
   <!-- <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"> -->
   <!-- Latest compiled and minified CSS -->
   <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css"> -->
@@ -44,6 +45,29 @@
   #goButton {
     background-color: black;
   }*/
+      body {
+        margin: 0px;
+        overflow: hidden;
+        background-color: black;
+      }
+      #example {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+      }
+      #loadMsg {
+        position: absolute;
+        z-index: 2;
+        color: white;
+        font-size: 3em;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        color: white;
+      }
   </style>
 </head>
 <body>
