@@ -48,7 +48,7 @@ request.onload = function() {
                 boost += array[i];
             }
             boost = boost / array.length;
-            console.log(boost);
+            // console.log(boost);
       };
 
       // source.start(0);

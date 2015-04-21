@@ -50,6 +50,10 @@ function createSpheres(num){
 
 }
 
+function createLights(num){
+  
+}
+
 function createParticles(num){
 
 		  // for ( var i = 0; i < num; i ++ ) {

@@ -1,12 +1,4 @@
-var movement = function(){
-      update(clock.getDelta());
-      render(clock.getDelta());
-
-      var movementSpeed = 0.1;
-      var startTimer = 0;
-
-      var timer = clock.getElapsedTime();
-      console.log(clock.getElapsedTime());
+var movement = function(timer, movementSpeed, startTimer){
       //car movement
       if ((timer > (startTimer + 24)) && (timer < (startTimer + 56))) {
         meshCar.rotation.y += 0.01;
@@ -60,38 +52,4 @@ var movement = function(){
         ceilingRoom2.rotation.x += (movementSpeed*3);
       };
 
-      // start music
-      if ((Math.floor(timer)) === (startTimer + 96)){
-        source.start(0);
-      };
-
-      // platform 2 disappears
-      if ((Math.floor(timer)) === (startTimer + 100)) {
-          scene.remove(  marko,
-                       bao,
-                       ganesh,
-                       andrew,
-                       ganeshWallYW,
-                       andrewWallYE,
-                       baoWallNZ,
-                       markoWallZS,
-                       room1HallWallXW,
-                       room1HallWallXE,
-                       room1HallWallZS,
-                       room1HallWallZN,
-                       room2WallZS,
-                       room2WallZN,
-                       room2WallXW,
-                       room2WallXE,
-                       room2WallXEshort,
-                       room2HallWallXE,
-                       room2HallWallZN,
-                       room2HallWallZS,
-                       garageDoor,
-                       ceilingRoom2,
-                       floor,
-                       meshdisk,
-                       meshCar
-                       );
-      };
 }
