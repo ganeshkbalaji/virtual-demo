@@ -24,11 +24,11 @@ function init() {
 
 	camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
       // launch pad start position
-      camera.position.set( -0, 215, 0); 
+      camera.position.set( -0, 315, 0); 
       // first room start position
       // camera.position.set( 0, 15, 0);
 
-      // camera.position.set(0,180,0)
+      // camera.position.set(0,180,170)
       scene.add(camera);
 
       controls = new THREE.OrbitControls(camera, element);
@@ -194,7 +194,7 @@ function init() {
       // };
 
       // GRAVITY
-      if ((timer > (startTimer + 1)) && (timer < (startTimer +  2.6))) {
+      if ((timer > (startTimer + 1)) && (timer < (startTimer +  2.9))) {
         camera.position.y -= (movementSpeed * exceleration);
         exceleration += 0.5;
       };
