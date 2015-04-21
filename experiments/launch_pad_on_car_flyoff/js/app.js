@@ -24,11 +24,12 @@ function init() {
 
 	camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
       // launch pad start position
-      camera.position.set( -0, 315, 0); 
+      // camera.position.set( -0, 315, 0); 
       // first room start position
       // camera.position.set( 0, 15, 0);
+      // TEST Camera position
+      camera.position.set(0,315,0);
 
-      // camera.position.set(0,180,170)
       scene.add(camera);
 
       controls = new THREE.OrbitControls(camera, element);
