@@ -192,23 +192,23 @@ var launchPadWallXW = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxG
 	[ customMaterial.bricks ] );
 launchPadWallXW.position.set(0,316,-30);
 
-var dbcHole = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(100, 5, 100, 1, 1, 1),
+var dbcHole = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(100, 3, 100, 1, 1, 1),
 	[ customMaterial.dbcLogo ] );
-dbcHole.position.set(0,36,0);
+dbcHole.position.set(0,38,0);
 
-var dbcWallZN = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 262, 120, 1, 1, 1),
+var dbcWallZN = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 264, 100, 1, 1, 1),
 	[ customMaterial.bricks ] );
 dbcWallZN.position.set(50,167,0);
 
-var dbcWallZS = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 262, 120, 1, 1, 1),
+var dbcWallZS = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 264, 100, 1, 1, 1),
 	[ customMaterial.bricks ] );
 dbcWallZS.position.set(-50,167,0);
 
-var dbcWallXE = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(120, 262, 2, 1, 1, 1),
+var dbcWallXE = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(100, 264, 2, 1, 1, 1),
 	[ customMaterial.bricks ] );
 dbcWallXE.position.set(0,167,50);
 
-var dbcWallXW = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(120, 262, 2, 1, 1, 1),
+var dbcWallXW = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(100, 264, 2, 1, 1, 1),
 	[ customMaterial.bricks ] );
 dbcWallXW.position.set(0,167,-50);
 
