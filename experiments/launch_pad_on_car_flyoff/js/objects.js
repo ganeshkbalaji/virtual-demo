@@ -140,6 +140,10 @@ var room1HallWallZN = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxG
 	[ customMaterial.wood ] );
 room1HallWallZN.position.set(-124, 5, 51);
 
+var ceilingRoom1 = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(192, 5, 100, 1, 1, 1),
+	[ customMaterial.woodceiling ] );
+ceilingRoom1.position.set(-55,32.5,-9.5);
+
 var room2WallZS = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 50, 100, 1, 1, 1),
 	[ customMaterial.wood ] );
 room2WallZS.position.set(-148, 5, 90.5);
@@ -160,57 +164,53 @@ var room2WallXEshort = THREE.SceneUtils.createMultiMaterialObject( new THREE.Box
 	[ customMaterial.wood ] );
 room2WallXEshort.position.set(-45, 5, 141);
 
-var ceilingRoom1 = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(192, 5, 100, 1, 1, 1),
-	[ customMaterial.woodceiling ] );
-ceilingRoom1.position.set(-55,32.5,-9.5);
-
-var launchPadFloor = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(100, 5, 100, 1, 1, 1),
-	[ customMaterial.officeCarpet ] );
-launchPadFloor.position.set(0,200,0);
-
-var launchPadCeiling = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(60, 5, 60, 1, 1, 1),
-	[ customMaterial.officeCeiling ] );
-launchPadCeiling.position.set(0,232,0);
-
-var launchPadWallZN = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 32, 60, 1, 1, 1),
-	[ customMaterial.bricks ] );
-launchPadWallZN.position.set(30,216,0);
-
-var launchPadWallZS = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 32, 60, 1, 1, 1),
-	[ customMaterial.bricks ] );
-launchPadWallZS.position.set(-30,216,0);
-
-var launchPadWallXE = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(60, 32, 2, 1, 1, 1),
-	[ customMaterial.bricks ] );
-launchPadWallXE.position.set(0,216,30);
-
-var launchPadWallXW = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(60, 32, 2, 1, 1, 1),
-	[ customMaterial.bricks ] );
-launchPadWallXW.position.set(0,216,-30);
-
 ceilingRoom2 = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(119, 5, 123, 1, 1, 1),
 	[ customMaterial.woodceiling ] );
 ceilingRoom2.position.set(-90,32.5,102); 
+
+var launchPadFloor = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(100, 5, 100, 1, 1, 1),
+	[ customMaterial.officeCarpet ] );
+launchPadFloor.position.set(0,300,0);
+
+var launchPadCeiling = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(60, 5, 60, 1, 1, 1),
+	[ customMaterial.officeCeiling ] );
+launchPadCeiling.position.set(0,332,0);
+
+var launchPadWallZN = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 32, 60, 1, 1, 1),
+	[ customMaterial.bricks ] );
+launchPadWallZN.position.set(30,316,0);
+
+var launchPadWallZS = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 32, 60, 1, 1, 1),
+	[ customMaterial.bricks ] );
+launchPadWallZS.position.set(-30,316,0);
+
+var launchPadWallXE = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(60, 32, 2, 1, 1, 1),
+	[ customMaterial.bricks ] );
+launchPadWallXE.position.set(0,316,30);
+
+var launchPadWallXW = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(60, 32, 2, 1, 1, 1),
+	[ customMaterial.bricks ] );
+launchPadWallXW.position.set(0,316,-30);
 
 var dbcHole = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(100, 5, 100, 1, 1, 1),
 	[ customMaterial.dbcLogo ] );
 dbcHole.position.set(0,34,0);
 
-var dbcWallZN = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 162, 120, 1, 1, 1),
+var dbcWallZN = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 262, 120, 1, 1, 1),
 	[ customMaterial.bricks ] );
-dbcWallZN.position.set(50,117,0);
+dbcWallZN.position.set(50,167,0);
 
-var dbcWallZS = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 162, 120, 1, 1, 1),
+var dbcWallZS = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 262, 120, 1, 1, 1),
 	[ customMaterial.bricks ] );
-dbcWallZS.position.set(-50,117,0);
+dbcWallZS.position.set(-50,167,0);
 
-var dbcWallXE = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(120, 162, 2, 1, 1, 1),
+var dbcWallXE = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(120, 262, 2, 1, 1, 1),
 	[ customMaterial.bricks ] );
-dbcWallXE.position.set(0,117,50);
+dbcWallXE.position.set(0,167,50);
 
-var dbcWallXW = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(120, 162, 2, 1, 1, 1),
+var dbcWallXW = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(120, 262, 2, 1, 1, 1),
 	[ customMaterial.bricks ] );
-dbcWallXW.position.set(0,117,-50);
+dbcWallXW.position.set(0,167,-50);
 
 
 
