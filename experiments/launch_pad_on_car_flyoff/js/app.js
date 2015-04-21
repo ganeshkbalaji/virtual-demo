@@ -190,7 +190,7 @@ function init() {
 
 
       // GRAVITY
-      if ((timer > (beginWait + 1)) && (timer < (beginWait +  2.84))) {
+      if ((timer > (beginWait + 1)) && (camera.position.y > 15)) {  //(timer < (beginWait +  2.84)
         camera.position.y -= (movementSpeed * exceleration);
         exceleration += 0.5;
       };
