@@ -15,8 +15,7 @@ var vrStart = false;
 
 function startButton(){
   vrStart = true;
-  source.start(0);
-  // $('#loadMsg').remove();
+  $('#goButton').remove();
 
 }
 
@@ -74,39 +73,39 @@ function init() {
       var ambiLight1 = new THREE.AmbientLight( 0x404040 ); // soft white light
 
     scene.add(  light,
-				ambiLight,
-				directionalLight1,
-				directionalLight2,
-				directionalLight3,
-				directionalLight4
-			);
+        				ambiLight,
+        				directionalLight1,
+        				directionalLight2,
+        				directionalLight3,
+        				directionalLight4
+        			);
 
  	// Adding objects to the scene
     scene.add(  marko, 
-    			bao, 
-    			ganesh, 
-    			andrew, 
-    			ganeshWallYW, 
-    			andrewWallYE, 
-    			baoWallNZ, 
-    			markoWallZS,
-    		    room1HallWallXW, 
-    		    room1HallWallXE, 
-    		    room1HallWallZS, 
-    		    room1HallWallZN,
-    		    room2WallZS, 
-				room2WallZN, 
-				room2WallXW, 
-				room2WallXE, 
-				room2WallXEshort,
-				room2HallWallXE,
-				room2HallWallZN,
-				room2HallWallZS,
-				garageDoor,
-				ceilingRoom2,
-				floor, 
-				meshdisk
-			);
+          			bao, 
+          			ganesh, 
+          			andrew, 
+          			ganeshWallYW, 
+          			andrewWallYE, 
+          			baoWallNZ, 
+          			markoWallZS,
+        		    room1HallWallXW, 
+        		    room1HallWallXE, 
+        		    room1HallWallZS, 
+        		    room1HallWallZN,
+        		    room2WallZS, 
+        				room2WallZN, 
+        				room2WallXW, 
+        				room2WallXE, 
+        				room2WallXEshort,
+        				room2HallWallXE,
+        				room2HallWallZN,
+        				room2HallWallZS,
+        				garageDoor,
+        				ceilingRoom2,
+        				floor, 
+        				meshdisk
+        			);
 
     // Adding the car object
     loader.load('car.js', function (geometry, materials) {
@@ -210,6 +209,7 @@ function animate(t) {
       if ((timer > (startTimer + 43)) && (timer < (startTimer + 58))) {
         // camera.position.x -= movementSpeed;
         // camera.position.z += movementSpeed;
+        source.start(0);
         ceilingRoom2.position.x -= movementSpeed;
     };
   }

@@ -66,7 +66,10 @@ request.onload = function() {
   //       .fadeIn();
       console.log("clearing interval");
 
-      // clearInterval(interval);
+      // clearInterval(dotsInterval);
+      $("#loading_dots").remove();
+      $("#loadText").remove();
+      $("#loadMsg").append("<button onclick='startButton()' id='goButton'>START</button>")
   //     // popup
   //     $('body').append($('<div onclick="play();" id="play" style="width: ' + $(window).width() + 'px; height: ' + $(window).height() + 'px;"><div id="play_link"></div></div>'));
   //     $('#play_link').css('top', ($(window).height() / 2 - $('#play_link').height() / 2) + 'px');
