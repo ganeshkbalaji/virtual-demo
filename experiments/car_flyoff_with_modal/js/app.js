@@ -3,6 +3,7 @@ var effect, controls;
 var element, container;
 var meshCar;
 var ceilingRoom2;
+var ambient;
 
 var loader = new THREE.JSONLoader();
 
@@ -39,7 +40,7 @@ function init() {
   effect = new THREE.StereoEffect(renderer);
   scene = new THREE.Scene();
 
-  camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
+  camera = new THREE.PerspectiveCamera(90, 1, 0.001, 15000);
       // camera.position.set( -90, 85, 155); // test camera postion
       camera.position.set( 0, 15, 0); //actual camera postion
       scene.add(camera);
@@ -166,12 +167,19 @@ function animate(t) {
     console.log(clock.getElapsedTime());
     movement(timer, movementSpeed, startTimer);
      // start music
-    if ((Math.floor(timer)) === (startTimer + 96)){
-      source.start(0);
-    };
 
+     //==============================================
+     //TRANSITION TO MUSIC
+     //==============================================
+
+    var musicstart = false;
+    if (musicstart === false){ //set up scene
+      if ((Math.floor(timer)) === (startTimer + 96)){
+        source.start(0);
+        musicstart = true;
+      };
       // platform 2 disappears
-    if ((Math.floor(timer)) === (startTimer + 100)) {
+      if ((Math.floor(timer)) === (startTimer + 95)) {
         scene.remove(  marko,
                      bao,
                      ganesh,
@@ -198,10 +206,38 @@ function animate(t) {
                      meshdisk,
                      meshCar
                      );
-      };
+          scene.remove(  light,
+                      ambiLight,
+                      directionalLight1,
+                      directionalLight2,
+                      directionalLight3,
+                      directionalLight4
+                      );
+          camera.position.set(0, 200, 0);
+
+          scene.fog = new THREE.Fog( 0x000000, 3500, 15000 );
+          scene.fog.color.setHSL( 0.51, 0.4, 0.01);
+
+          ambient = new THREE.AmbientLight( 0xffffff );
+          ambient.color.setHSL( 0.5, 0.5, 0.2 );
+          scene.add( ambient );
+        };
+      musicstart = true;
+    };
+
+    //==============================================
+    // MUSIC ACTIONS
+    //===============================================
+    
+    var frequency = Math.floor(boost);
+
+    if ((Math.floor(timer)) > (startTimer + 96)){
+      visualizer(timer,frequency);
+    }
+    
+
     update(clock.getDelta());
     render(clock.getDelta());
-
   }
 
   function fullscreen() {
