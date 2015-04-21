@@ -24,11 +24,11 @@ function init() {
 
 	camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
       // launch pad start position
-      camera.position.set( -0, 215, 0); 
+      // camera.position.set( -0, 215, 0); 
       // first room start position
       // camera.position.set( 0, 15, 0);
 
-      // camera.position.set(0,180,0)
+      camera.position.set(0,180,0)
       scene.add(camera);
 
       controls = new THREE.OrbitControls(camera, element);
@@ -95,12 +95,12 @@ function init() {
       floor, 
       meshdisk,
       dbcHole,
-      startPadFloor,
-      startPadCeiling,
-      startPadWallZN,
-      startPadWallZS,
-      startPadWallXE,
-      startPadWallXW,
+      launchPadFloor,
+      launchPadCeiling,
+      launchPadWallZN,
+      launchPadWallZS,
+      launchPadWallXE,
+      launchPadWallXW,
       dbcWallZN,
       dbcWallZS,
       dbcWallXE,
@@ -132,38 +132,39 @@ function init() {
     setTimeout(resize, 1);
   }
 
-  function resize() {
-   var width = container.offsetWidth;
-   var height = container.offsetHeight;
+    
+    function resize() {
+    var width = container.offsetWidth;
+    var height = container.offsetHeight;
+ 
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+ 
+    renderer.setSize(width, height);
+    effect.setSize(width, height);
+  }
 
-   camera.aspect = width / height;
-   camera.updateProjectionMatrix();
+  function update(dt) {
+    resize();
+  
+    camera.updateProjectionMatrix();
+  
+    controls.update(dt);
+  }
+  
+  function render(dt) {
+    effect.render(scene, camera);
+  }
 
-   renderer.setSize(width, height);
-   effect.setSize(width, height);
- }
-
- function update(dt) {
-   resize();
-
-   camera.updateProjectionMatrix();
-
-   controls.update(dt);
- }
-
- function render(dt) {
-   effect.render(scene, camera);
- }
-
- function animate(t) {
-   requestAnimationFrame(animate);
-
-   update(clock.getDelta());
-   render(clock.getDelta());
-
-   var movementSpeed = 0.1;
-   var timer = clock.getElapsedTime();
-   var startTimer = 0;
+  function animate(t) {
+    requestAnimationFrame(animate);
+  
+    update(clock.getDelta());
+    render(clock.getDelta());
+  
+    var movementSpeed = 0.1;
+    var timer = clock.getElapsedTime();
+    var startTimer = 0;
 
       // // car movement
       // if ((timer > (startTimer + 24)) && (timer < (startTimer + 56))) {
@@ -192,11 +193,11 @@ function init() {
       //  camera.position.z += movementSpeed;
       // };
 
-      // GRAVITY
-      if ((timer > (startTimer + 1)) && (timer < (startTimer +  2.7))) {
-        camera.position.y -= (movementSpeed * exceleration);
-        exceleration += 0.5;
-      };
+      // // GRAVITY
+      // if ((timer > (startTimer + 1)) && (timer < (startTimer +  2.7))) {
+      //   camera.position.y -= (movementSpeed * exceleration);
+      //   exceleration += 0.5;
+      // };
       
       // if ((timer > (startTimer + 6.5)) && (timer < (startTimer + 24))) {
       // 	camera.position.x -= movementSpeed;
@@ -216,10 +217,10 @@ function init() {
       //   ceilingRoom2.position.x -= movementSpeed;
       // };
 
-    }
+  }
 
-    function fullscreen() {
-     if (container.requestFullscreen) {
+  function fullscreen() {
+    if (container.requestFullscreen) {
       container.requestFullscreen();
     } else if (container.msRequestFullscreen) {
       container.msRequestFullscreen();
