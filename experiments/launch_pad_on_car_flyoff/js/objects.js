@@ -194,7 +194,7 @@ launchPadWallXW.position.set(0,316,-30);
 
 var dbcHole = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(100, 5, 100, 1, 1, 1),
 	[ customMaterial.dbcLogo ] );
-dbcHole.position.set(0,34,0);
+dbcHole.position.set(0,36,0);
 
 var dbcWallZN = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 262, 120, 1, 1, 1),
 	[ customMaterial.bricks ] );
