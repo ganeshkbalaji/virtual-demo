@@ -3,10 +3,12 @@ var effect, controls;
 var element, container;
 var meshCar;
 var ceilingRoom2;
+var ambient;
 
 var loader = new THREE.JSONLoader();
 
 var clock = 0;
+var musicClock;
 
 init();
 animate();
@@ -39,7 +41,7 @@ function init() {
   effect = new THREE.StereoEffect(renderer);
   scene = new THREE.Scene();
 
-  camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
+  camera = new THREE.PerspectiveCamera(90, 1, 0.001, 15000);
       // camera.position.set( -90, 85, 155); // test camera postion
       camera.position.set( 0, 15, 0); //actual camera postion
       scene.add(camera);
@@ -160,7 +162,99 @@ function animate(t) {
 
 
   if(vrStart === true){
-    movement();
+    var movementSpeed = 0.1;
+    var startTimer = 0;
+    var timer = clock.getElapsedTime();
+    var musicTimer;
+    // console.log(clock.getElapsedTime());
+    movement(timer, movementSpeed, startTimer);
+     // start music
+
+     //==============================================
+     //TRANSITION TO MUSIC
+     //==============================================
+
+    var musicStart = false;
+
+      if ( (musicStart === false) && ((Math.floor(timer)) === (startTimer + 5))) {
+       
+
+          camera.position.set(0, 200, 0);
+
+          scene.fog = new THREE.Fog( 0x000000, 3500, 15000 );
+          scene.fog.color.setHSL( 0.51, 0.4, 0.01);
+
+          ambient = new THREE.AmbientLight( 0xffffff );
+          ambient.color.setHSL( 0.5, 0.5, 0.2 );
+          // scene.add( ambient );
+
+          var dirLight = new THREE.DirectionalLight( 0xffffff, 0.05 );
+          dirLight.position.set( -50, -20, 100 ).normalize();
+          scene.add( dirLight );
+
+          dirLight.color.setHSL( 0.1, 0.7, 0.5 );
+
+
+
+          source.start(0);
+
+          musicClock = new THREE.Clock();
+          // debugger;
+          // musicTimer = musicClock.getElapsedTime();
+
+          musicStart = true;
+          scene.remove(  marko,
+                     bao,
+                     ganesh,
+                     andrew,
+                     ganeshWallYW,
+                     andrewWallYE,
+                     baoWallNZ,
+                     markoWallZS,
+                     room1HallWallXW,
+                     room1HallWallXE,
+                     room1HallWallZS,
+                     room1HallWallZN,
+                     room2WallZS,
+                     room2WallZN,
+                     room2WallXW,
+                     room2WallXE,
+                     room2WallXEshort,
+                     room2HallWallXE,
+                     room2HallWallZN,
+                     room2HallWallZS,
+                     garageDoor,
+                     ceilingRoom2,
+                     floor,
+                     meshdisk,
+                     meshCar
+                     );
+          scene.remove(  light,
+                      ambiLight,
+                      directionalLight1,
+                      directionalLight2,
+                      directionalLight3,
+                      directionalLight4
+                      );
+        };
+
+    //==============================================
+    // MUSIC ACTIONS
+    //===============================================
+    
+    var frequency = Math.floor(boost);
+
+    if ((Math.floor(timer)) > (startTimer + 5)){
+      // musicClock = new THREE.Clock();
+          
+      musicTimer = musicClock.getElapsedTime();
+      visualizer(musicTimer,frequency);
+      // debugger;
+    }
+    
+
+    update(clock.getDelta());
+    render(clock.getDelta());
   }
 
   function fullscreen() {
