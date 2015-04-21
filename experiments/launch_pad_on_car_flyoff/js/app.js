@@ -194,10 +194,10 @@ function init() {
       // };
 
       // GRAVITY
-      if ((timer > (startTimer + 1)) && (timer < (startTimer +  2.7))) {
-        camera.position.y -= (movementSpeed * exceleration);
-        exceleration += 0.5;
-      };
+      // if ((timer > (startTimer + 1)) && (timer < (startTimer +  2.6))) {
+      //   camera.position.y -= (movementSpeed * exceleration);
+      //   exceleration += 0.5;
+      // };
       
       // if ((timer > (startTimer + 6.5)) && (timer < (startTimer + 24))) {
       // 	camera.position.x -= movementSpeed;
