@@ -28,12 +28,12 @@
   <script src="DeviceOrientationControls.js"></script>
   <script src="OrbitControls.js"></script>
   <script src="audio.js"></script>
+  <script src="create_objs.js"></script>
 
   <script>
     var camera, scene, renderer;
     var effect, controls;
     var element, container;
-    var cubeArray = [];
     var clock = new THREE.Clock();
 
     var ambient;
@@ -65,44 +65,19 @@
       // camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 1, 15000 );
       // camera.position.z = 250;
 
-      scene.add(camera);
+        scene.add(camera);
 
-      controls = new THREE.OrbitControls(camera, element);
-      controls.rotateUp(Math.PI / 4);
-      controls.target.set(
-        camera.position.x + 0.1,
-        camera.position.y,
-        camera.position.z
-      );
-      controls.noZoom = true;
-      controls.noPan = true;
+        controls = new THREE.OrbitControls(camera, element);
+        controls.rotateUp(Math.PI / 4);
+        controls.target.set(
+          camera.position.x + 0.1,
+          camera.position.y,
+          camera.position.z
+        );
+        controls.noZoom = true;
+        controls.noPan = true;
 
-        //begin add
-
-        // world
-
-        var side = 250;
-
-
-        for ( var i = 0; i < 500; i ++ ) {
-
-          var cube = new THREE.Mesh( cubegeo, cubematerial );
-          var cubegeo = new THREE.BoxGeometry( side, side, side );
-          var cubematerial = new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0xffffff, shininess: 50 } );
-          cube.position.x = 8000 * ( 2.0 * Math.random() - 1.0 );
-          cube.position.y = 8000 * ( 2.0 * Math.random() - 1.0 );
-          cube.position.z = 8000 * ( 2.0 * Math.random() - 1.0 );
-
-          cube.rotation.x = Math.random() * Math.PI;
-          cube.rotation.y = Math.random() * Math.PI;
-          cube.rotation.z = Math.random() * Math.PI;
-
-          // cube.matrixAutoUpdate = false;
-          // cube.updateMatrix();
-          cubeArray.push(cube);
-          scene.add( cube );
-
-        };
+        // createCubes(500);
 
         ambient = new THREE.AmbientLight( 0xffffff );
         ambient.color.setHSL( 0.5, 0.5, 0.2 );
@@ -129,20 +104,6 @@
 
       var hemLight2 = new THREE.HemisphereLight(0x80DC55, 0x000000, 0.6);
       scene.add(hemLight2);
-
-      // var spotLight = new THREE.SpotLight( 0xffffff );
-      // spotLight.position.set( 100, 1000, 100 );
-
-      // spotLight.castShadow = true;
-
-      // spotLight.shadowMapWidth = 1024;
-      // spotLight.shadowMapHeight = 1024;
-
-      // spotLight.shadowCameraNear = 500;
-      // spotLight.shadowCameraFar = 4000;
-      // spotLight.shadowCameraFov = 30;
-
-      // scene.add( spotLight );
 
       var texture = THREE.ImageUtils.loadTexture('checker.png');
       texture.wrapS = THREE.RepeatWrapping;
@@ -204,80 +165,110 @@
       requestAnimationFrame(animate);
 
       timer = clock.getElapsedTime();
+      frequency = Math.floor(boost); // boost calculated in audio.js file
 
       if (timer < 30){
         light.intensity += 0.00001;
       }
 
-      if ((timer > 30) && (timer < 60)){
-        if ((Math.floor(boost)) < 33) {
+      // squareUpper = 45 //space odditty 45
+      // squareLower = 46 //space odditty 46
+      // sphereUpper = 60 //space odditty 60
+      // sphereLower = 70 //space odditty 70
+
+      squareUpper = 110 //space odditty 45
+      squareLower = 100 //space odditty 46
+      sphereUpper = 100 //space odditty 60
+      sphereLower = 90 //space odditty 70
+
+
+
+      if ((frequency > squareLower) && (frequency < squareUpper) && (timer <60)){
+        createCubes(1);
+      }
+
+      if ((frequency > sphereLower) && (frequency < sphereUpper) && (timer > 60) && (timer < 120)){
+        createSpheres(1);
+      }
+
+
+
+      // if ((frequency ))
+
+      if (timer > 60){
+        if (frequency < 33) {
           ambient.color.setHex(0x2DB4E0);
-        } else if (((Math.floor(boost)) > 33) && ((Math.floor(boost)) < 66)) {
+        } else if ((frequency > 40) && (frequency < 66)) {
           ambient.color.setHex(0xE8E51E);
-          // light.intensity = 0;
-          light.intensity += 0.00001;
         } else {
           ambient.color.setHex(0xE81E40);
-          // light.intensity += 0
         }
       }
 
-      if ((timer >15)){
+      //bump cubes
 
-        if (((Math.floor(boost)) > 33) && ((Math.floor(boost)) < 66)) {
-
-        var sphere = new THREE.SphereGeometry( 100, 32, 32 );
-        var sphereMaterial = new THREE.MeshPhongMaterial( { color: 0xffffff, specular: 0xffffff, shininess: 50 } );
-
-        var sphereMesh = [];
-
-        for ( var i = 0; i < 10; i ++ ) {
-
-          sphereMesh[i] = new THREE.Mesh( sphere, sphereMaterial );
-          sphereMesh[i].position.x = 8000 * ( 2.0 * Math.random() - 1.0 );
-          sphereMesh[i].position.y = 8000 * ( 2.0 * Math.random() - 1.0 );
-          sphereMesh[i].position.z = 8000 * ( 2.0 * Math.random() - 1.0 );
-
-          sphereMesh[i].rotation.x = Math.random() * Math.PI;
-          sphereMesh[i].rotation.y = Math.random() * Math.PI;
-          sphereMesh[i].rotation.z = Math.random() * Math.PI;
-
-          sphereMesh[i].matrixAutoUpdate = false;
-          sphereMesh[i].updateMatrix();
-
-          scene.add( sphereMesh[i] );
-
-        };
-
-        }
-
-        // for (var i = 0; i < 100; i++) {
-        //   cubemesh[i].position.x +=20;
-        // }
-
-      }
+      // for (var i = 0; i < cubeArray.length; i++) {
+      //   var cube = cubeArray[i];
+      //   var boostScale = boost/70;
+      //   if ((frequency > 60) && (frequency < 80)) {
+      //     ambient.color.setHex(0x2DB4E0);
+      //     // cube.scale.x = boostScale;
+      //     // cube.scale.y = boostScale;
+      //     // cube.scale.z = boostScale;
+      //   } else if (frequency > 60) {
+      //     cube.scale.x = (boostScale +1);
+      //     cube.scale.y = (boostScale +1);
+      //     cube.scale.z = (boostScale +1);
+      //     // light.intensity += 0
+      //   }
+      // };
 
       for (var i = 0; i < cubeArray.length; i++) {
         var cube = cubeArray[i];
         var boostScale = boost/70;
-        if (((Math.floor(boost)) > 60) && ((Math.floor(boost)) < 80)) {
+        if ((frequency > 60) && (frequency < 80)) {
           ambient.color.setHex(0x2DB4E0);
           // cube.scale.x = boostScale;
           // cube.scale.y = boostScale;
           // cube.scale.z = boostScale;
-        } else if ((Math.floor(boost)) > 80) {
-          cube.scale.x = boostScale;
-          cube.scale.y = boostScale;
-          cube.scale.z = boostScale;
+          // cube.rotation.x += 0.1;
+        } else if (frequency > 60) {
+          cube.scale.x = (boostScale +1);
+          cube.scale.y = (boostScale +1);
+          cube.scale.z = (boostScale +1);
           // light.intensity += 0
         }
       };
 
-      
 
-      console.log(timer);
+      for (var i = 0; i < cubeArray.length; i++) {
+        var cube = cubeArray[i];
+        if ((timer > 120) && (frequency > 70)) {
+          // console.log(rotate);
+          cube.rotation.x += 0.1;
+        }
+      };
 
-      // light.intensity += 0.1;
+      for (var i = 0; i < sphereArray.length; i++) {
+        var sphere = sphereArray[i];
+        if ((timer > 60) && (frequency > 80)) {
+          // console.log("rotate");
+          sphere.position.x += 10;
+        }
+        if ((timer > 100) && (frequency > 80)) {
+          // console.log("rotate");
+          sphere.position.x -= 10;
+          sphere.position.y += 5;
+        }
+        if ((timer > 100) && (frequency > 90)){
+          sphere.scale.x = (boostScale +1);
+          sphere.scale.y = (boostScale +1);
+          sphere.scale.z = (boostScale +1);
+        }
+      };
+
+      // console.log(timer);
+
 
 
 
