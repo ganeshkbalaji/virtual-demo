@@ -1,7 +1,7 @@
 var context;
 var source, sourceJs;
 var analyser;
-var url = 'RATATAT_CREAMONCHROME.mp3';
+var url = 'Intergalactic.mp3';
 var array = new Array();
 var boost = 0;
 
@@ -48,6 +48,7 @@ request.onload = function() {
                 boost += array[i];
             }
             boost = boost / array.length;
+            console.log(boost);
       };
 
       // source.start(0);
