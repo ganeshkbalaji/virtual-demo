@@ -164,7 +164,7 @@ function init() {
   
     var movementSpeed = 0.1;
     var timer = clock.getElapsedTime();
-    var startTimer = 0;
+    var startTimer = 4;
 
       // // car movement
       // if ((timer > (startTimer + 24)) && (timer < (startTimer + 56))) {
