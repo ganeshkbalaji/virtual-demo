@@ -171,11 +171,23 @@
         light.intensity += 0.00001;
       }
 
-      if ((frequency > 42) && (frequency < 45) && (timer <60)){
+      // squareUpper = 45 //space odditty 45
+      // squareLower = 46 //space odditty 46
+      // sphereUpper = 60 //space odditty 60
+      // sphereLower = 70 //space odditty 70
+
+      squareUpper = 110 //space odditty 45
+      squareLower = 100 //space odditty 46
+      sphereUpper = 100 //space odditty 60
+      sphereLower = 90 //space odditty 70
+
+
+
+      if ((frequency > squareLower) && (frequency < squareUpper) && (timer <60)){
         createCubes(1);
       }
 
-      if ((frequency > 60) && (frequency < 70) && (timer > 60) && (timer < 120)){
+      if ((frequency > sphereLower) && (frequency < sphereUpper) && (timer > 60) && (timer < 120)){
         createSpheres(1);
       }
 
@@ -255,7 +267,7 @@
         }
       };
 
-      console.log(timer);
+      // console.log(timer);
 
 
 
