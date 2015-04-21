@@ -167,7 +167,7 @@ function animate(t) {
     var timer = clock.getElapsedTime();
     var musicTimer;
     // console.log(clock.getElapsedTime());
-    movement(timer, movementSpeed, startTimer);
+    // movement(timer, movementSpeed, startTimer);
      // start music
 
      //==============================================
