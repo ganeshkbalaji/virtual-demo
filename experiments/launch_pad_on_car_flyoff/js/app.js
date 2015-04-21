@@ -23,8 +23,12 @@ function init() {
 	scene = new THREE.Scene();
 
 	camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
-      camera.position.set( -0, 215, 0);
+      // launch pad start position
+      camera.position.set( -0, 215, 0); 
+      // first room start position
       // camera.position.set( 0, 15, 0);
+
+      // camera.position.set(0,180,0)
       scene.add(camera);
 
       controls = new THREE.OrbitControls(camera, element);
@@ -55,7 +59,8 @@ function init() {
     // Adding light to the scene
       var ambiLight1 = new THREE.AmbientLight( 0x404040 ); // soft white light
 
-      scene.add(  light,
+      scene.add( 
+        light,
         ambiLight,
         directionalLight1,
         directionalLight2,
@@ -63,40 +68,44 @@ function init() {
         directionalLight4
         );
 
- 	// Adding objects to the scene
-  scene.add(  marko, 
-   bao, 
-   ganesh, 
-   andrew, 
-   ganeshWallYW, 
-   andrewWallYE, 
-   baoWallNZ, 
-   markoWallZS,
-   room1HallWallXW, 
-   room1HallWallXE, 
-   room1HallWallZS, 
-   room1HallWallZN,
-   room2WallZS, 
-   room2WallZN, 
-   room2WallXW, 
-   room2WallXE, 
-   room2WallXEshort,
-   room2HallWallXE,
-   room2HallWallZN,
-   room2HallWallZS,
-   garageDoor,
-   ceilingRoom1,
-   ceilingRoom2,
-   floor, 
-   meshdisk,
-   blackHole,
-   startPadFloor,
-   startPadCeiling,
-   startPadWallZN,
-   startPadWallZS,
-   startPadWallXE,
-   startPadWallXW
-   );
+ 	  // Adding objects to the scene
+    scene.add(  marko, 
+      bao, 
+      ganesh, 
+      andrew, 
+      ganeshWallYW, 
+      andrewWallYE, 
+      baoWallNZ, 
+      markoWallZS,
+      room1HallWallXW, 
+      room1HallWallXE, 
+      room1HallWallZS, 
+      room1HallWallZN,
+      room2WallZS, 
+      room2WallZN, 
+      room2WallXW, 
+      room2WallXE, 
+      room2WallXEshort,
+      room2HallWallXE,
+      room2HallWallZN,
+      room2HallWallZS,
+      garageDoor,
+      ceilingRoom1,
+      ceilingRoom2,
+      floor, 
+      meshdisk,
+      dbcHole,
+      startPadFloor,
+      startPadCeiling,
+      startPadWallZN,
+      startPadWallZS,
+      startPadWallXE,
+      startPadWallXW,
+      dbcWallZN,
+      dbcWallZS,
+      dbcWallXE,
+      dbcWallXW
+    );
 
     // Adding the car object
     loader.load('car.js', function (geometry, materials) {
@@ -183,13 +192,11 @@ function init() {
       //  camera.position.z += movementSpeed;
       // };
 
-      // if ((timer > (startTimer + 1)) && (timer < (startTimer +  19))) {
-      	 
-      //   camera.position.y -= (movementSpeed * exceleration);
-      //   exceleration += 0.5;
-      //   // console.log(clock);
-      // 	// camera.position.z += movementSpeed;
-      // };
+      // GRAVITY
+      if ((timer > (startTimer + 1)) && (timer < (startTimer +  2.7))) {
+        camera.position.y -= (movementSpeed * exceleration);
+        exceleration += 0.5;
+      };
       
       // if ((timer > (startTimer + 6.5)) && (timer < (startTimer + 24))) {
       // 	camera.position.x -= movementSpeed;
