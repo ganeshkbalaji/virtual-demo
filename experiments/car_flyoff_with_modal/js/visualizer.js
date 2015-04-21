@@ -1,37 +1,33 @@
-function visualizer (timer, frequency){
+var visualizer = function(timer, frequency){
 	// console.log("viz");
-	console.log(frequency);
+	// console.log(frequency);
 	 if (timer < 100){
         light.intensity += 0.00001;
       }
+
+      console.log(timer + ": " + frequency);
 
       // squareUpper = 45 //space odditty 45
       // squareLower = 46 //space odditty 46
       // sphereUpper = 60 //space odditty 60
       // sphereLower = 70 //space odditty 70
 
-      squareUpper = 110 //space odditty 45
-      squareLower = 100 //space odditty 46
-      sphereUpper = 100 //space odditty 60
-      sphereLower = 90 //space odditty 70
+      squareUpper = 110; //space odditty 45
+      squareLower = 100; //space odditty 46
+      sphereUpper = 80; //space odditty 60
+      sphereLower = 70; //space odditty 70
 
-
-
-      if ((frequency > squareLower) && (frequency < squareUpper) && (timer >100)){
+      if ((frequency > squareLower) && (frequency < squareUpper) && (timer < 100)){
         createCubes(1);
         console.log("CUBE!");
       }
 
-      if ((frequency > sphereLower) && (frequency < sphereUpper) && (timer > 100)){
+      if ((frequency > sphereLower) && (frequency < sphereUpper) && (timer < 100)){
         createSpheres(1);
         console.log("SPHERE");
       }
 
-
-
-      // if ((frequency ))
-
-      if (timer > 60){
+      if (timer > 5){
         if (frequency < 33) {
           ambient.color.setHex(0x2DB4E0);
         } else if ((frequency > 40) && (frequency < 66)) {
@@ -39,6 +35,10 @@ function visualizer (timer, frequency){
         } else {
           ambient.color.setHex(0xE81E40);
         }
+      }
+
+      if ((frequency > 110) & (timer > 30)){
+      	scene.add(ambient);
       }
 
       //bump cubes

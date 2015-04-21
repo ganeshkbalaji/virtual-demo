@@ -8,6 +8,7 @@ var ambient;
 var loader = new THREE.JSONLoader();
 
 var clock = 0;
+var musicClock;
 
 init();
 animate();
@@ -164,7 +165,8 @@ function animate(t) {
     var movementSpeed = 0.1;
     var startTimer = 0;
     var timer = clock.getElapsedTime();
-    console.log(clock.getElapsedTime());
+    var musicTimer;
+    // console.log(clock.getElapsedTime());
     movement(timer, movementSpeed, startTimer);
      // start music
 
@@ -172,15 +174,36 @@ function animate(t) {
      //TRANSITION TO MUSIC
      //==============================================
 
-    var musicstart = false;
-    if (musicstart === false){ //set up scene
-      if ((Math.floor(timer)) === (startTimer + 96)){
-        source.start(0);
-        musicstart = true;
-      };
-      // platform 2 disappears
-      if ((Math.floor(timer)) === (startTimer + 95)) {
-        scene.remove(  marko,
+    var musicStart = false;
+
+      if ( (musicStart === false) && ((Math.floor(timer)) === (startTimer + 5))) {
+       
+
+          camera.position.set(0, 200, 0);
+
+          scene.fog = new THREE.Fog( 0x000000, 3500, 15000 );
+          scene.fog.color.setHSL( 0.51, 0.4, 0.01);
+
+          ambient = new THREE.AmbientLight( 0xffffff );
+          ambient.color.setHSL( 0.5, 0.5, 0.2 );
+          // scene.add( ambient );
+
+          var dirLight = new THREE.DirectionalLight( 0xffffff, 0.5 );
+          dirLight.position.set( -50, -20, 100 ).normalize();
+          scene.add( dirLight );
+
+          dirLight.color.setHSL( 0.1, 0.7, 0.5 );
+
+
+
+          source.start(0);
+
+          musicClock = new THREE.Clock();
+          // debugger;
+          // musicTimer = musicClock.getElapsedTime();
+
+          musicStart = true;
+          scene.remove(  marko,
                      bao,
                      ganesh,
                      andrew,
@@ -213,17 +236,7 @@ function animate(t) {
                       directionalLight3,
                       directionalLight4
                       );
-          camera.position.set(0, 200, 0);
-
-          scene.fog = new THREE.Fog( 0x000000, 3500, 15000 );
-          scene.fog.color.setHSL( 0.51, 0.4, 0.01);
-
-          ambient = new THREE.AmbientLight( 0xffffff );
-          ambient.color.setHSL( 0.5, 0.5, 0.2 );
-          scene.add( ambient );
         };
-      musicstart = true;
-    };
 
     //==============================================
     // MUSIC ACTIONS
@@ -231,8 +244,12 @@ function animate(t) {
     
     var frequency = Math.floor(boost);
 
-    if ((Math.floor(timer)) > (startTimer + 96)){
-      visualizer(timer,frequency);
+    if ((Math.floor(timer)) > (startTimer + 5)){
+      // musicClock = new THREE.Clock();
+          
+      musicTimer = musicClock.getElapsedTime();
+      visualizer(musicTimer,frequency);
+      // debugger;
     }
     
 
