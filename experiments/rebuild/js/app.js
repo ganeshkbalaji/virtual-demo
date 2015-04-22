@@ -28,6 +28,7 @@ function startButton(){
   // vrStart = true;
   // source.start(0);
   clock.start();
+  source.start(0);
   $('#goButton').remove();
 }
 
@@ -255,7 +256,7 @@ function init() {
         musicStart = true;
         // console.log
         console.log("removing : " + musicStart);
-        source.start(0);
+        
       }
 
   }
