@@ -317,15 +317,15 @@ function init() {
       sphereUpper = 80; //space odditty 60
       sphereLower = 50; //space odditty 70
 
-      if ((frequency > squareLower) && (frequency < squareUpper) && (timer > (startTimer + 75))){
+      if ((frequency > 90) && (frequency < 110) && (timer > (startTimer + 75))){
         createCubes(1);
         // console.log("CUBE!");
       }
 
-      if ((frequency > sphereLower) && (frequency < sphereUpper) && (timer > (startTimer + 75))){
-        createSpheres(1);
-        // console.log("SPHERE");
-      }
+      // if ((frequency > sphereLower) && (frequency < sphereUpper) && (timer > (startTimer + 75))){
+      //   createSpheres(1);
+      //   // console.log("SPHERE");
+      // }
 
 
 
