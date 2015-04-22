@@ -28,7 +28,10 @@ function startButton(){
   // vrStart = true;
   // source.start(0);
   clock.start();
-  setTimeout(function(){source.start(0)},15000);
+  source.start(0);
+  // source.noteOn(0);
+  // source.start(1000);
+  // setTimeout(function(){source.start(0)},15000);
   $('#goButton').remove();
 }
 
@@ -252,10 +255,48 @@ function init() {
 
       
 
-      if ((!musicStart) && (timer > (startTimer + 5))){
+      if ((!musicStart) && (timer > (startTimer + 75))){
         musicStart = true;
         // console.log
         console.log("removing : " + musicStart);
+            scene.remove(  marko, 
+                        bao, 
+                        ganesh, 
+                        andrew, 
+                        ganeshWallYW, 
+                        andrewWallYE, 
+                        baoWallNZ, 
+                        markoWallZS,
+                        room1HallWallXW, 
+                        room1HallWallXE, 
+                        room1HallWallZS, 
+                        room1HallWallZN,
+                        room2WallZS, 
+                        room2WallZN, 
+                        room2WallXW, 
+                        room2WallXE, 
+                        room2WallXEshort,
+                        room2HallWallXE,
+                        room2HallWallZN,
+                        room2HallWallZS,
+                        garageDoor,
+                        ceilingRoom1,
+                        ceilingRoom2,
+                        floor, 
+                        meshdisk,
+                        dbcHole,
+                        launchPadFloor,
+                        launchPadCeiling,
+                        launchPadWallZN,
+                        launchPadWallZS,
+                        launchPadWallXE,
+                        launchPadWallXW,
+                        dbcWallZN,
+                        dbcWallZS,
+                        dbcWallXE,
+                        dbcWallXW,
+                        meshCar
+                      );
         
       }
 
