@@ -1,7 +1,7 @@
 var context;
 var source, sourceJs;
 var analyser;
-var url = 'intergalactic-short3.ogg';
+var url = 'intergalactic-short3.mp3';
 var array = new Array();
 var boost = 0;
 
