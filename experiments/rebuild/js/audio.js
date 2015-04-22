@@ -43,7 +43,7 @@ request.onload = function() {
 
       source = context.createBufferSource();
       source.buffer = buffer;
-      source.loop = true;
+      source.loop = false;
 
       source.connect(analyser);
       analyser.connect(sourceJs);
