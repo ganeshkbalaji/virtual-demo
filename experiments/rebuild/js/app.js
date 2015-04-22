@@ -7,12 +7,15 @@ var exceleration = 0;
 
 var loader = new THREE.JSONLoader();
 
-var clock;
+var clock = new THREE.Clock(false);
+// clock.start();
+// clock.stop();
 
 init();
 animate();
 
 var dotsInterval = window.setInterval(function() {
+   console.log("dots");
   if($('#loading_dots').text().length < 3) {
     $('#loading_dots').text($('#loading_dots').text() + '.');
   }
@@ -24,7 +27,7 @@ var dotsInterval = window.setInterval(function() {
 function startButton(){
   // vrStart = true;
   source.start(0);
-  clock = new THREE.Clock();
+  clock.start();
   $('#goButton').remove();
 }
 
@@ -180,6 +183,9 @@ function init() {
     update(clock.getDelta());
     render(clock.getDelta());
   
+    console.log(clock.getElapsedTime());
+
+
     var movementSpeed = 0.1;
     var timer = clock.getElapsedTime();
     var beginWait = 4;

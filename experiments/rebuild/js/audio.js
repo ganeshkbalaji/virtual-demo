@@ -66,7 +66,7 @@ request.onload = function() {
   //       .fadeIn();
       console.log("clearing interval");
 
-      // clearInterval(dotsInterval);
+      clearInterval(dotsInterval);
       $("#loading_dots").remove();
       $("#loadText").remove();
       $("#loadMsg").append("<button onclick='startButton()' id='goButton'>START</button>")
