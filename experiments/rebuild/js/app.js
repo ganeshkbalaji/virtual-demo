@@ -26,7 +26,7 @@ var dotsInterval = window.setInterval(function() {
 
 function startButton(){
   // vrStart = true;
-  source.start(0);
+  // source.start(0);
   clock.start();
   $('#goButton').remove();
 }
@@ -248,6 +248,14 @@ function init() {
         // camera.position.z += movementSpeed;
         ceilingRoom2.position.x -= movementSpeed;
       };
+
+      var musicStart = false;
+
+      if ((musicStart === false) && (timer > (startTimer + 76))){
+        musicStart = true;
+        console.log("removing");
+        source.start(0);
+      }
 
   }
 
