@@ -126,7 +126,7 @@ function init() {
       meshCar.receiveShadow = true;
       meshCar.castShadow = true;
 
-      scene.add(meshCar);
+      // scene.add(meshCar);
       render();
     });
 
