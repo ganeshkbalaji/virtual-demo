@@ -187,7 +187,7 @@ function init() {
     update(clock.getDelta());
     render(clock.getDelta());
   
-    console.log(clock.getElapsedTime());
+    // console.log(clock.getElapsedTime());
 
 
     var movementSpeed = 0.1;
@@ -297,18 +297,34 @@ function init() {
                         dbcWallXW,
                         meshCar,
                         light,
-                        ambiLight,
-                        directionalLight1,
-                        directionalLight2,
-                        directionalLight3,
-                        directionalLight4
+                        // ambiLight,
+                        // directionalLight1,
+                        // directionalLight2,
+                        // directionalLight3,
+                        // directionalLight4
                       );
+
         
       }
 
       var frequency = Math.floor(boost);
 
       console.log(frequency);
+
+      squareUpper = 130; //space odditty 45
+      squareLower = 100; //space odditty 46
+      sphereUpper = 80; //space odditty 60
+      sphereLower = 50; //space odditty 70
+
+      if ((frequency > squareLower) && (frequency < squareUpper) && (timer > (startTimer + 75))){
+        createCubes(1);
+        console.log("CUBE!");
+      }
+
+      if ((frequency > sphereLower) && (frequency < sphereUpper) && (timer > (startTimer + 75))){
+        createSpheres(1);
+        console.log("SPHERE");
+      }
 
 
 
