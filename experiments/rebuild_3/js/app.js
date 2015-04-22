@@ -52,9 +52,9 @@ function init() {
 
 	camera = new THREE.PerspectiveCamera(90, 1, 0.001, 15000);
   // launch pad start position
-  // camera.position.set( -0, 315, 0);
+  camera.position.set( -0, 315, 0);
   // first room start position
-  camera.position.set( 0, 15, 0);
+  // camera.position.set( 0, 15, 0);
   // TEST Camera position
   // camera.position.set(0,315,0);
 
@@ -232,24 +232,24 @@ function animate(t) {
   };
 
   // camera movement
-  // if ((timer > (startTimer + 1)) && (timer < (startTimer +  6.5))) {
-  //   camera.position.x -= movementSpeed;
-  //   camera.position.z += movementSpeed;
-  //   exceleration = 0;
-  // };
+  if ((timer > (startTimer + 1)) && (timer < (startTimer +  6.5))) {
+    camera.position.x -= movementSpeed;
+    camera.position.z += movementSpeed;
+    exceleration = 0;
+  };
 
-  // if ((timer > (startTimer + 6.5)) && (timer < (startTimer + 24))) {
-  // 	camera.position.x -= movementSpeed;
-  // };
+  if ((timer > (startTimer + 6.5)) && (timer < (startTimer + 24))) {
+  	camera.position.x -= movementSpeed;
+  };
 
-  // if ((timer > (startTimer + 23.9)) && (timer < (startTimer + 40))) {
-  //   camera.position.z += movementSpeed;
-  // };
+  if ((timer > (startTimer + 23.9)) && (timer < (startTimer + 40))) {
+    camera.position.z += movementSpeed;
+  };
 
-  // if ((timer > (startTimer + 70)) && (timer < (startTimer + 74))) {
-  //   camera.position.y += (movementSpeed * exceleration);
-  //   exceleration += 0.5;
-  // };
+  if ((timer > (startTimer + 70)) && (timer < (startTimer + 74))) {
+    camera.position.y += (movementSpeed * exceleration);
+    exceleration += 0.5;
+  };
 
   // ceiling movement
   if ((timer > (startTimer + 43)) && (timer < (startTimer + 64))) {
