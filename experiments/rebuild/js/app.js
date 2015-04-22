@@ -296,7 +296,7 @@ function init() {
                         dbcWallXE,
                         dbcWallXW,
                         meshCar,
-                        light,
+                        light
                         // ambiLight,
                         // directionalLight1,
                         // directionalLight2,
