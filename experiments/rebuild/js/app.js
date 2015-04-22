@@ -44,11 +44,11 @@ function init() {
 
 	camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
       // launch pad start position
-      // camera.position.set( -0, 315, 0); 
+      camera.position.set( -0, 315, 0); 
       // first room start position
       // camera.position.set( 0, 15, 0);
       // TEST Camera position
-      camera.position.set(0,315,0);
+      // camera.position.set(0,315,0);
 
       scene.add(camera);
 
@@ -190,6 +190,7 @@ function init() {
     var timer = clock.getElapsedTime();
     var beginWait = 4;
     var startTimer = 10;
+    // var startTimer = 0;
 
       // car movement
       if ((timer > (startTimer + 24)) && (timer < (startTimer + 56))) {
@@ -214,7 +215,7 @@ function init() {
 
 
       // GRAVITY
-      if ((timer > (beginWait + 1)) && (camera.position.y > 14)) {  //(timer < (beginWait +  2.84)
+      if ((timer > (beginWait + 1)) && (camera.position.y > 14) && (timer < (startTimer + 50))) {  //(timer < (beginWait +  2.84)
         camera.position.y -= (movementSpeed * exceleration);
         exceleration += 0.5;
       };
@@ -235,9 +236,14 @@ function init() {
         camera.position.z += movementSpeed;
       };
 
+      if ((timer > (startTimer + 66)) && (timer < (startTimer + 76))) {
+        // camera.position.x -= movementSpeed;
+        camera.position.y += (movementSpeed * 8);
+      };
+
 
       // ceiling movement
-      if ((timer > (startTimer + 43)) && (timer < (startTimer + 58))) {
+      if ((timer > (startTimer + 43)) && (timer < (startTimer + 64))) {
         // camera.position.x -= movementSpeed;
         // camera.position.z += movementSpeed;
         ceilingRoom2.position.x -= movementSpeed;
