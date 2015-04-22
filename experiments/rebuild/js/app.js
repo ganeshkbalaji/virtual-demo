@@ -12,6 +12,16 @@ var clock = new THREE.Clock();
 init();
 animate();
 
+var dotsInterval = window.setInterval(function() {
+  if($('#loading_dots').text().length < 3) {
+    $('#loading_dots').text($('#loading_dots').text() + '.');
+  }
+  else {
+    $('#loading_dots').text('');
+  }
+}, 500);
+
+
 function init() {
 	
 	renderer = new THREE.WebGLRenderer();
