@@ -164,8 +164,8 @@ function animate(t) {
   if(vrStart === true){
     var movementSpeed = 0.1;
     var startTimer = 0;
-    var timer = clock.getElapsedTime();
-    var musicTimer;
+    // var timer = clock.getElapsedTime();
+    // var musicTimer;
     // console.log(clock.getElapsedTime());
     // movement(timer, movementSpeed, startTimer);
      // start music
@@ -174,83 +174,87 @@ function animate(t) {
      //TRANSITION TO MUSIC
      //==============================================
 
-    var musicStart = false;
+    // var musicStart = false;
 
-      if ( (musicStart === false) && ((Math.floor(timer)) === (startTimer + 5))) {
+    //   if ( (musicStart === false) && ((Math.floor(timer)) === (startTimer + 5))) {
        
 
-          camera.position.set(0, 200, 0);
+    //       camera.position.set(0, 200, 0);
 
-          scene.fog = new THREE.Fog( 0x000000, 3500, 15000 );
-          scene.fog.color.setHSL( 0.51, 0.4, 0.01);
+    //       scene.fog = new THREE.Fog( 0x000000, 3500, 15000 );
+    //       scene.fog.color.setHSL( 0.51, 0.4, 0.01);
 
-          ambient = new THREE.AmbientLight( 0xffffff );
-          ambient.color.setHSL( 0.5, 0.5, 0.2 );
-          // scene.add( ambient );
+    //       ambient = new THREE.AmbientLight( 0xffffff );
+    //       ambient.color.setHSL( 0.5, 0.5, 0.2 );
+    //       // scene.add( ambient );
 
-          var dirLight = new THREE.DirectionalLight( 0xffffff, 0.05 );
-          dirLight.position.set( -50, -20, 100 ).normalize();
-          scene.add( dirLight );
+    //       var dirLight = new THREE.DirectionalLight( 0xffffff, 0.05 );
+    //       dirLight.position.set( -50, -20, 100 ).normalize();
+    //       scene.add( dirLight );
 
-          dirLight.color.setHSL( 0.1, 0.7, 0.5 );
+    //       dirLight.color.setHSL( 0.1, 0.7, 0.5 );
 
 
 
-          source.start(0);
+    //       source.start(0);
 
-          musicClock = new THREE.Clock();
-          // debugger;
-          // musicTimer = musicClock.getElapsedTime();
+    //       musicClock = new THREE.Clock();
+    //       // debugger;
+    //       // musicTimer = musicClock.getElapsedTime();
 
-          musicStart = true;
-          scene.remove(  marko,
-                     bao,
-                     ganesh,
-                     andrew,
-                     ganeshWallYW,
-                     andrewWallYE,
-                     baoWallNZ,
-                     markoWallZS,
-                     room1HallWallXW,
-                     room1HallWallXE,
-                     room1HallWallZS,
-                     room1HallWallZN,
-                     room2WallZS,
-                     room2WallZN,
-                     room2WallXW,
-                     room2WallXE,
-                     room2WallXEshort,
-                     room2HallWallXE,
-                     room2HallWallZN,
-                     room2HallWallZS,
-                     garageDoor,
-                     ceilingRoom2,
-                     floor,
-                     meshdisk,
-                     meshCar
-                     );
-          scene.remove(  light,
-                      ambiLight,
-                      directionalLight1,
-                      directionalLight2,
-                      directionalLight3,
-                      directionalLight4
-                      );
-        };
+    //       musicStart = true;
+    //       scene.remove(  marko,
+    //                  bao,
+    //                  ganesh,
+    //                  andrew,
+    //                  ganeshWallYW,
+    //                  andrewWallYE,
+    //                  baoWallNZ,
+    //                  markoWallZS,
+    //                  room1HallWallXW,
+    //                  room1HallWallXE,
+    //                  room1HallWallZS,
+    //                  room1HallWallZN,
+    //                  room2WallZS,
+    //                  room2WallZN,
+    //                  room2WallXW,
+    //                  room2WallXE,
+    //                  room2WallXEshort,
+    //                  room2HallWallXE,
+    //                  room2HallWallZN,
+    //                  room2HallWallZS,
+    //                  garageDoor,
+    //                  ceilingRoom2,
+    //                  floor,
+    //                  meshdisk,
+    //                  meshCar
+    //                  );
+    //       scene.remove(  light,
+    //                   ambiLight,
+    //                   directionalLight1,
+    //                   directionalLight2,
+    //                   directionalLight3,
+    //                   directionalLight4
+    //                   );
+    //     };
 
-    //==============================================
-    // MUSIC ACTIONS
-    //===============================================
+    // //==============================================
+    // // MUSIC ACTIONS
+    // //===============================================
     
-    var frequency = Math.floor(boost);
+    // var frequency = Math.floor(boost);
 
-    if ((Math.floor(timer)) > (startTimer + 5)){
-      // musicClock = new THREE.Clock();
+    // if ((Math.floor(timer)) > (startTimer + 5)){
+    //   // musicClock = new THREE.Clock();
           
-      musicTimer = musicClock.getElapsedTime();
-      visualizer(musicTimer,frequency);
-      // debugger;
-    }
+    //   musicTimer = musicClock.getElapsedTime();
+    //   visualizer(musicTimer,frequency);
+    //   // debugger;
+    // }
+
+    //=========================================
+    //RENDER
+    //==========================================
     
 
     update(clock.getDelta());
