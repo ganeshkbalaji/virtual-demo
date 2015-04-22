@@ -2,7 +2,7 @@ function startVR() {
   // $('#play').fadeOut('normal', function() {
   //   $(this).remove();
   // });
-  
+
   $('div#info').remove();
   $('button#startButton').remove();
 
@@ -11,8 +11,8 @@ function startVR() {
 
 }
 
- 
-  
+
+
 
 
 var camera, scene, renderer;
@@ -29,7 +29,7 @@ var clock = new THREE.Clock();
   animate();
 
 function init() {
-	
+
 	renderer = new THREE.WebGLRenderer();
 	element = renderer.domElement;
 	container = document.getElementById('example');
@@ -80,30 +80,30 @@ function init() {
 			);
 
  	// Adding objects to the scene
-    scene.add(  marko, 
-    			bao, 
-    			ganesh, 
-    			andrew, 
-    			ganeshWallYW, 
-    			andrewWallYE, 
-    			baoWallNZ, 
+    scene.add(  marko,
+    			bao,
+    			ganesh,
+    			andrew,
+    			ganeshWallYW,
+    			andrewWallYE,
+    			baoWallNZ,
     			markoWallZS,
-    		    room1HallWallXW, 
-    		    room1HallWallXE, 
-    		    room1HallWallZS, 
+    		    room1HallWallXW,
+    		    room1HallWallXE,
+    		    room1HallWallZS,
     		    room1HallWallZN,
-    		    room2WallZS, 
-				room2WallZN, 
-				room2WallXW, 
-				room2WallXE, 
+    		    room2WallZS,
+				room2WallZN,
+				room2WallXW,
+				room2WallXE,
 				room2WallXEshort,
 				room2HallWallXE,
 				room2HallWallZN,
 				room2HallWallZS,
 				garageDoor,
 				ceilingRoom2,
-				floor, 
-				meshdisk
+				floor,
+				meshdisk,
 			);
 
     // Adding the car object
@@ -167,30 +167,30 @@ function animate(t) {
       // car movement
     //   if ((timer > (startTimer + 24)) && (timer < (startTimer + 56))) {
     //   	meshCar.rotation.y += 0.01;
-    //   };      
+    //   };
 
     //   if ((timer > (startTimer + 57)) && (timer < (startTimer + 64))) {
     //   	meshCar.position.y += 0.07;
-    //   };      
+    //   };
 
     //   if ((timer > (startTimer + 64)) && (timer < (startTimer + 66))) {
     //   	meshCar.position.y += 0.07;
     //   	meshCar.rotation.x -= 0.003
 
-    //   };      
+    //   };
 
     //   if ((timer > (startTimer + 66)) && (timer < (startTimer + 70))) {
     //   	meshCar.position.z += 0.8;
     //   	meshCar.position.y += 0.8;
     //     // meshCar.rotation.z += 0.03;
-    // };      
+    // };
 
     //   // camera movement
     //   if ((timer > (startTimer + 1)) && (timer < (startTimer +  6.5))) {
     //   	camera.position.x -= movementSpeed;
     //   	camera.position.z += movementSpeed;
     //   };
-      
+
     //   if ((timer > (startTimer + 6.5)) && (timer < (startTimer + 24))) {
     //   	camera.position.x -= movementSpeed;
     //     // camera.position.z += movementSpeed;

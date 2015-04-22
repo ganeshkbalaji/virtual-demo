@@ -41,7 +41,7 @@ function startButton(){
 
 
 function init() {
-	
+
 	renderer = new THREE.WebGLRenderer();
 	element = renderer.domElement;
 	container = document.getElementById('example');
@@ -52,9 +52,9 @@ function init() {
 
 	camera = new THREE.PerspectiveCamera(90, 1, 0.001, 15000);
   // launch pad start position
-  camera.position.set( -0, 315, 0); 
+  // camera.position.set( -0, 315, 0);
   // first room start position
-  // camera.position.set( 0, 15, 0);
+  camera.position.set( 0, 15, 0);
   // TEST Camera position
   // camera.position.set(0,315,0);
 
@@ -89,7 +89,7 @@ function init() {
   // Adding light to the scene
   var ambiLight1 = new THREE.AmbientLight( 0x404040 ); // soft white light
 
-  scene.add( 
+  scene.add(
     light,
     ambiLight,
     directionalLight1,
@@ -99,23 +99,23 @@ function init() {
   );
 
  	// Adding objects to the scene
-  scene.add(  
-    marko, 
-    bao, 
-    ganesh, 
-    andrew, 
-    ganeshWallYW, 
-    andrewWallYE, 
-    baoWallNZ, 
+  scene.add(
+    marko,
+    bao,
+    ganesh,
+    andrew,
+    ganeshWallYW,
+    andrewWallYE,
+    baoWallNZ,
     markoWallZS,
-    room1HallWallXW, 
-    room1HallWallXE, 
-    room1HallWallZS, 
+    room1HallWallXW,
+    room1HallWallXE,
+    room1HallWallZS,
     room1HallWallZN,
-    room2WallZS, 
-    room2WallZN, 
-    room2WallXW, 
-    room2WallXE, 
+    room2WallZS,
+    room2WallZN,
+    room2WallXW,
+    room2WallXE,
     room2WallXEshort,
     room2HallWallXE,
     room2HallWallZN,
@@ -123,7 +123,7 @@ function init() {
     garageDoor,
     ceilingRoom1,
     ceilingRoom2,
-    floor, 
+    floor,
     meshdisk,
     dbcHole,
     launchPadFloor,
@@ -136,7 +136,11 @@ function init() {
     dbcWallZS,
     dbcWallXE,
     dbcWallXW,
-    rotatingCube
+    rotatingCube,
+    markoframe,
+    baoframe,
+    ganeshframe,
+    andrewframe
   );
 
   // Adding the car object
@@ -163,7 +167,7 @@ function init() {
   window.addEventListener('resize', resize, false);
   setTimeout(resize, 1);
 }
-  
+
   function resize() {
   var width = container.offsetWidth;
   var height = container.offsetHeight;
@@ -204,22 +208,22 @@ function animate(t) {
   // car movement
   if ((timer > (startTimer + 24)) && (timer < (startTimer + 56))) {
     meshCar.rotation.y += 0.01;
-  };      
+  };
 
   if ((timer > (startTimer + 57)) && (timer < (startTimer + 64))) {
     meshCar.position.y += 0.07;
-  };      
+  };
 
   if ((timer > (startTimer + 64)) && (timer < (startTimer + 66.5))) {
     meshCar.position.y += 0.07;
     meshCar.rotation.x -= 0.003
-  };      
+  };
 
   if ((timer > (startTimer + 66)) && (timer < (startTimer + 73))) {
     meshCar.position.z += (carExceleration * 1);
     meshCar.position.y += (carExceleration * 1);
     carExceleration += 0.2;
-  };      
+  };
 
   // GRAVITY
   if ((timer > (beginWait)) && (camera.position.y > 14) && (timer < (startTimer + 50))) {  //(timer < (beginWait +  2.84)
@@ -228,52 +232,52 @@ function animate(t) {
   };
 
   // camera movement
-  if ((timer > (startTimer + 1)) && (timer < (startTimer +  6.5))) {
-    camera.position.x -= movementSpeed;
-    camera.position.z += movementSpeed;
-    exceleration = 0;
-  };
-  
-  if ((timer > (startTimer + 6.5)) && (timer < (startTimer + 24))) {
-  	camera.position.x -= movementSpeed;
-  };
+  // if ((timer > (startTimer + 1)) && (timer < (startTimer +  6.5))) {
+  //   camera.position.x -= movementSpeed;
+  //   camera.position.z += movementSpeed;
+  //   exceleration = 0;
+  // };
 
-  if ((timer > (startTimer + 23.9)) && (timer < (startTimer + 40))) {
-    camera.position.z += movementSpeed;
-  };
+  // if ((timer > (startTimer + 6.5)) && (timer < (startTimer + 24))) {
+  // 	camera.position.x -= movementSpeed;
+  // };
 
-  if ((timer > (startTimer + 70)) && (timer < (startTimer + 74))) {
-    camera.position.y += (movementSpeed * exceleration);
-    exceleration += 0.5;
-  };
+  // if ((timer > (startTimer + 23.9)) && (timer < (startTimer + 40))) {
+  //   camera.position.z += movementSpeed;
+  // };
+
+  // if ((timer > (startTimer + 70)) && (timer < (startTimer + 74))) {
+  //   camera.position.y += (movementSpeed * exceleration);
+  //   exceleration += 0.5;
+  // };
 
   // ceiling movement
   if ((timer > (startTimer + 43)) && (timer < (startTimer + 64))) {
     ceilingRoom2.position.x -= movementSpeed;
   };
 
-      
+
 
   if ((!musicStart) && (timer > (startTimer + 75))){
     musicStart = true;
     // console.log
     console.log("removing : " + musicStart);
-    scene.remove( marko, 
-                  bao, 
-                  ganesh, 
-                  andrew, 
-                  ganeshWallYW, 
-                  andrewWallYE, 
-                  baoWallNZ, 
+    scene.remove( marko,
+                  bao,
+                  ganesh,
+                  andrew,
+                  ganeshWallYW,
+                  andrewWallYE,
+                  baoWallNZ,
                   markoWallZS,
-                  room1HallWallXW, 
-                  room1HallWallXE, 
-                  room1HallWallZS, 
+                  room1HallWallXW,
+                  room1HallWallXE,
+                  room1HallWallZS,
                   room1HallWallZN,
-                  room2WallZS, 
-                  room2WallZN, 
-                  room2WallXW, 
-                  room2WallXE, 
+                  room2WallZS,
+                  room2WallZN,
+                  room2WallXW,
+                  room2WallXE,
                   room2WallXEshort,
                   room2HallWallXE,
                   room2HallWallZN,
@@ -281,7 +285,7 @@ function animate(t) {
                   garageDoor,
                   ceilingRoom1,
                   ceilingRoom2,
-                  floor, 
+                  floor,
                   meshdisk,
                   dbcHole,
                   launchPadFloor,
@@ -296,7 +300,11 @@ function animate(t) {
                   dbcWallXW,
                   meshCar,
                   rotatingCube,
-                  light
+                  light,
+                  markoframe,
+                  baoframe,
+                  ganeshframe,
+                  andrewframe
                 // ambiLight,
                 // directionalLight1,
                 // directionalLight2,
@@ -309,7 +317,7 @@ function animate(t) {
     ambient.color.setHSL( 0.5, 0.5, 0.2 );
     scene.add( ambient );
 
-    
+
   }
 
   var frequency = Math.floor(boost);
@@ -360,7 +368,7 @@ function animate(t) {
   };
 
   if ((timer > (startTimer + 145)) && (frequency > 60)){
-      var cubeIndex = Math.floor(Math.random() * cubeArray.length) 
+      var cubeIndex = Math.floor(Math.random() * cubeArray.length)
       scene.remove(cubeArray[cubeIndex]);
       cubeArray.splice(cubeIndex, 1);
   }

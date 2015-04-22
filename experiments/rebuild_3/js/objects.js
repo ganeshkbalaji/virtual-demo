@@ -37,7 +37,7 @@ var customMaterial = {
 	}),
 
 	carMaterial: new THREE.MeshLambertMaterial({
-		map: THREE.ImageUtils.loadTexture('images/gtare.jpg'),   
+		map: THREE.ImageUtils.loadTexture('images/gtare.jpg'),
 		colorAmbient: [0.480000026226044, 0.480000026226044, 0.480000026226044],
 		colorDiffuse: [0.480000026226044, 0.480000026226044, 0.480000026226044],
 		colorSpecular: [0.8999999761581421, 0.8999999761581421, 0.8999999761581421]
@@ -52,7 +52,7 @@ var customMaterial = {
 	garageDoor: new THREE.MeshLambertMaterial({
 		map: THREE.ImageUtils.loadTexture('images/garagedoor.jpg')
 	}),
-	
+
 	officeCeiling: new THREE.MeshLambertMaterial({
 		map: THREE.ImageUtils.loadTexture('images/officeCeiling.png')
 	}),
@@ -73,7 +73,7 @@ var customMaterial = {
 
 }
 
-var meshdisk = new THREE.Mesh( new THREE.RingGeometry( 0, 25, 30 ), 
+var meshdisk = new THREE.Mesh( new THREE.RingGeometry( 0, 25, 30 ),
 	customMaterial.diskMaterial );
 meshdisk.position.set(-92,3.5,92);
 meshdisk.rotation.x = 300
@@ -98,21 +98,34 @@ var room2HallWallXE = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxG
 	[ customMaterial.wood ] );
 room2HallWallXE.position.set(-75, 5, 161);
 
-var marko = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 20, 20, 1, 1, 1),
+var marko = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 10, 10, 1, 1, 1),
 	[ customMaterial.markopic] );
-marko.position.set(-58, 15, -15);
+marko.position.set(38, 20, -25);
 
-var bao = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 23, 20, 1, 1, 1),
+var bao = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 10, 10, 1, 1, 1),
 	[ customMaterial.baopic] );
-bao.position.set(38, 15, -1);
+bao.position.set(38, 20, -8);
 
-var ganesh = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(10, 22, .1, 1, 1, 1),
+var ganesh = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 10, 10, 1, 1, 1),
 	[ customMaterial.ganeshpic] );
-ganesh.position.set(-05, 15, -38.5);
+ganesh.position.set(38, 20, 9);
 
-var andrew = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(20, 20, .1, 1, 1, 1),
+var andrew = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 10, 10, 1, 1, 1),
 	[ customMaterial.andrewpic] );
-andrew.position.set(-05, 15, 38.5);
+andrew.position.set(38, 20, 25);
+
+var markoframe = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 11,11, 1, 1, 1), [new THREE.MeshBasicMaterial({color: 0xc5b358})]);
+markoframe.position.set(38.50, 20, -25);
+
+var baoframe = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 11,11, 1, 1, 1), [new THREE.MeshBasicMaterial({color: 0xc5b358})]);
+baoframe.position.set(38.50, 20, -8);
+
+var ganeshframe = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 11,11, 1, 1, 1), [new THREE.MeshBasicMaterial({color: 0xc5b358})]);
+ganeshframe.position.set(38.50, 20, 9);
+
+var andrewframe = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 11,11, 1, 1, 1),
+	[new THREE.MeshBasicMaterial({color: 0xc5b358})]);
+andrewframe.position.set(38.50, 20, 25);
 
 var ganeshWallYW = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(100, 50, 2, 1, 1, 1),
 	[ customMaterial.bricks ] );
@@ -172,7 +185,7 @@ room2WallXEshort.position.set(-45, 5, 141);
 
 ceilingRoom2 = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(119, 5, 123, 1, 1, 1),
 	[ customMaterial.woodceiling ] );
-ceilingRoom2.position.set(-90,32.5,102); 
+ceilingRoom2.position.set(-90,32.5,102);
 
 var launchPadFloor = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(100, 5, 100, 1, 1, 1),
 	[ customMaterial.officeCarpet ] );
