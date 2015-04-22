@@ -9,6 +9,7 @@ var carExceleration = 0;
 var musicStart = false;
 var loader = new THREE.JSONLoader();
 var ambient;
+var endGame = false;
 
 var clock = new THREE.Clock(false);
 // clock.start();
@@ -363,6 +364,15 @@ function animate(t) {
       scene.remove(cubeArray[cubeIndex]);
       cubeArray.splice(cubeIndex, 1);
   }
+
+  if ((endGame === false)  && (timer > (startTimer + 150))){
+    endGame = true;
+    $("#loadMsg").append("<h1>THANKS FOR PLAYING :)</h1><br><button onclick='endButton()' id='goButton'>PLAY AGAIN!</button>");
+  }
+}
+
+function endButton(){
+  location.reload();
 }
 
 function fullscreen() {

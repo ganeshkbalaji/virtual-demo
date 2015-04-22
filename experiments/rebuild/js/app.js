@@ -9,6 +9,7 @@ var carExceleration = 0;
 var musicStart = false;
 var loader = new THREE.JSONLoader();
 var ambient;
+var endGame = false;
 
 var clock = new THREE.Clock(false);
 // clock.start();
@@ -363,6 +364,8 @@ function animate(t) {
       scene.remove(cubeArray[cubeIndex]);
       cubeArray.splice(cubeIndex, 1);
   }
+
+
 }
 
 function fullscreen() {
