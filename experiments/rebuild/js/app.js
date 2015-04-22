@@ -7,6 +7,7 @@ var rotatingCube;
 var exceleration = 0;
 var musicStart = false;
 var loader = new THREE.JSONLoader();
+var ambient;
 
 var clock = new THREE.Clock(false);
 // clock.start();
@@ -257,7 +258,7 @@ function init() {
         ceilingRoom2.position.x -= movementSpeed;
       };
 
-
+      
 
       if ((!musicStart) && (timer > (startTimer + 75))){
         musicStart = true;
@@ -310,12 +311,16 @@ function init() {
                       );
           camera.position.set(0, 200, 0);
 
+          ambient = new THREE.AmbientLight( 0xffffff );
+          ambient.color.setHSL( 0.5, 0.5, 0.2 );
+          scene.add( ambient );
+
         
       }
 
       var frequency = Math.floor(boost);
 
-      // console.log(timer + " : " + frequency);
+      console.log(timer + " : " + frequency);
 
       squareUpper = 130; //space odditty 45
       squareLower = 100; //space odditty 46
@@ -331,6 +336,41 @@ function init() {
       //   createSpheres(1);
       //   // console.log("SPHERE");
       // }
+
+      if (timer > (startTimer + 85)){
+        if (frequency < 80) {
+          ambient.color.setHex(0x2DB4E0);
+        } else if ((frequency > 80) && (frequency < 100)) {
+          ambient.color.setHex(0xE8E51E);
+        } else {
+          ambient.color.setHex(0xE81E40);
+        }
+      }
+
+      for (var i = 0; i < cubeArray.length; i++) {
+        var cube = cubeArray[i];
+        var boostScale = boost/70;
+        if ((frequency > 60) && (frequency < 100)) {
+          ambient.color.setHex(0x2DB4E0);
+          // cube.scale.x = boostScale;
+          // cube.scale.y = boostScale;
+          // cube.scale.z = boostScale;
+          // cube.rotation.x += 0.1;
+        } else if (frequency > 100) {
+          cube.scale.x = (boostScale +1);
+          cube.scale.y = (boostScale +1);
+          cube.scale.z = (boostScale +1);
+          // light.intensity += 0
+        }
+      };
+
+      for (var i = 0; i < cubeArray.length; i++) {
+        var cube = cubeArray[i];
+        if ((timer > 120) && (frequency > 70)) {
+          // console.log(rotate);
+          cube.rotation.x += 0.1;
+        }
+      };
 
 
 
