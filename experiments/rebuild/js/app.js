@@ -4,7 +4,7 @@ var element, container;
 var meshCar;
 var ceilingRoom2;
 var exceleration = 0;
-
+var musicStart = false;
 var loader = new THREE.JSONLoader();
 
 var clock = new THREE.Clock(false);
@@ -249,11 +249,12 @@ function init() {
         ceilingRoom2.position.x -= movementSpeed;
       };
 
-      var musicStart = false;
+      
 
-      if ((musicStart === false) && (timer > (startTimer + 76))){
+      if ((!musicStart) && (timer > (startTimer + 5))){
         musicStart = true;
-        console.log("removing");
+        // console.log
+        console.log("removing : " + musicStart);
         source.start(0);
       }
 
