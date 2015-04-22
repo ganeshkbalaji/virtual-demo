@@ -3,6 +3,7 @@ var effect, controls;
 var element, container;
 var meshCar;
 var ceilingRoom2;
+var rotatingCube;
 var exceleration = 0;
 var musicStart = false;
 var loader = new THREE.JSONLoader();
@@ -129,7 +130,8 @@ function init() {
       dbcWallZN,
       dbcWallZS,
       dbcWallXE,
-      dbcWallXW
+      dbcWallXW,
+      rotatingCube
     );
 
     // Adding the car object
@@ -189,6 +191,8 @@ function init() {
   
     // console.log(clock.getElapsedTime());
 
+    rotatingCube.rotation.x += 0.005;
+    rotatingCube.rotation.y += 0.01;
 
     var movementSpeed = 0.1;
     var timer = clock.getElapsedTime();
@@ -296,6 +300,7 @@ function init() {
                         dbcWallXE,
                         dbcWallXW,
                         meshCar,
+                        rotatingCube,
                         light
                         // ambiLight,
                         // directionalLight1,

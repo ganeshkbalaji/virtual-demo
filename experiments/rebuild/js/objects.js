@@ -61,9 +61,15 @@ var customMaterial = {
 		map: THREE.ImageUtils.loadTexture('images/officeCarpet.jpg')
 	}),
 
-	dbcLogo: new THREE.MeshLambertMaterial({
-		map: THREE.ImageUtils.loadTexture('images/dbcLogo.png')
+  dbcLogo: new THREE.MeshLambertMaterial({
+    map: THREE.ImageUtils.loadTexture('images/dbcLogo.png')
+  }),
+
+	sealions: new THREE.MeshLambertMaterial({
+		map: THREE.ImageUtils.loadTexture('images/sealions.jpg')
 	}),
+
+
 
 }
 
@@ -209,8 +215,12 @@ var dbcWallXE = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometr
 dbcWallXE.position.set(0,167,50);
 
 var dbcWallXW = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(100, 264, 2, 1, 1, 1),
-	[ customMaterial.bricks ] );
+  [ customMaterial.bricks ] );
 dbcWallXW.position.set(0,167,-50);
+
+var rotatingCube = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(5, 5, 5, 1, 1, 1),
+	[ customMaterial.sealions ] );
+rotatingCube.position.set(0,312,10);
 
 
 
