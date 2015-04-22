@@ -41,7 +41,7 @@ function init() {
   effect = new THREE.StereoEffect(renderer);
   scene = new THREE.Scene();
 
-  camera = new THREE.PerspectiveCamera(90, 1, 0.001, 15000);
+  camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
       // camera.position.set( -90, 85, 155); // test camera postion
       camera.position.set( 0, 15, 0); //actual camera postion
       scene.add(camera);
