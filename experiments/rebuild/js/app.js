@@ -46,7 +46,7 @@ function init() {
 	effect = new THREE.StereoEffect(renderer);
 	scene = new THREE.Scene();
 
-	camera = new THREE.PerspectiveCamera(90, 1, 0.001, 700);
+	camera = new THREE.PerspectiveCamera(90, 1, 0.001, 15000);
       // launch pad start position
       camera.position.set( -0, 315, 0); 
       // first room start position
@@ -303,6 +303,7 @@ function init() {
                         // directionalLight3,
                         // directionalLight4
                       );
+          camera.position.set(0, 200, 0);
 
         
       }
