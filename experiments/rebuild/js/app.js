@@ -7,7 +7,7 @@ var exceleration = 0;
 
 var loader = new THREE.JSONLoader();
 
-var clock = new THREE.Clock();
+var clock;
 
 init();
 animate();
@@ -20,6 +20,13 @@ var dotsInterval = window.setInterval(function() {
     $('#loading_dots').text('');
   }
 }, 500);
+
+function startButton(){
+  // vrStart = true;
+  source.start(0);
+  clock = new THREE.Clock();
+  $('#goButton').remove();
+}
 
 
 function init() {
