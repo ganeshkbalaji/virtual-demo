@@ -15,7 +15,7 @@ init();
 animate();
 
 var dotsInterval = window.setInterval(function() {
-   console.log("dots");
+   // console.log("dots");
   if($('#loading_dots').text().length < 3) {
     $('#loading_dots').text($('#loading_dots').text() + '.');
   }
@@ -310,7 +310,7 @@ function init() {
 
       var frequency = Math.floor(boost);
 
-      console.log(frequency);
+      // console.log(timer + " : " + frequency);
 
       squareUpper = 130; //space odditty 45
       squareLower = 100; //space odditty 46
@@ -319,12 +319,12 @@ function init() {
 
       if ((frequency > squareLower) && (frequency < squareUpper) && (timer > (startTimer + 75))){
         createCubes(1);
-        console.log("CUBE!");
+        // console.log("CUBE!");
       }
 
       if ((frequency > sphereLower) && (frequency < sphereUpper) && (timer > (startTimer + 75))){
         createSpheres(1);
-        console.log("SPHERE");
+        // console.log("SPHERE");
       }
 
 
