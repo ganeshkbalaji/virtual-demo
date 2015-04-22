@@ -28,7 +28,7 @@ function startButton(){
   // vrStart = true;
   // source.start(0);
   clock.start();
-  source.start(0);
+  setTimeout(source.start(0),5000);
   $('#goButton').remove();
 }
 
