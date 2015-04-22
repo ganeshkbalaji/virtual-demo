@@ -324,20 +324,26 @@ function init() {
 
       squareUpper = 130; //space odditty 45
       squareLower = 100; //space odditty 46
-      sphereUpper = 80; //space odditty 60
-      sphereLower = 50; //space odditty 70
+      sphereUpper = 80;  //space odditty 60
+      sphereLower = 50;  //space odditty 70
 
-      if ((frequency > 90) && (frequency < 110) && (timer > (startTimer + 75))){
+      if ((frequency > 90) && (frequency < 110) && (timer > (startTimer + 75)) && (timer < (startTimer + 110))){
         createCubes(1);
         // console.log("CUBE!");
       }
+
+      if (timer > (startTimer + 75)){
+        camera.position.x -= 1;
+        camera.position.y += 1;
+      }
+
 
       // if ((frequency > sphereLower) && (frequency < sphereUpper) && (timer > (startTimer + 75))){
       //   createSpheres(1);
       //   // console.log("SPHERE");
       // }
 
-      if (timer > (startTimer + 85)){
+      if (timer > (startTimer + 79)){
         if (frequency < 80) {
           ambient.color.setHex(0x2DB4E0);
         } else if ((frequency > 80) && (frequency < 100)) {
@@ -347,33 +353,30 @@ function init() {
         }
       }
 
-      for (var i = 0; i < cubeArray.length; i++) {
-        var cube = cubeArray[i];
-        var boostScale = boost/70;
-        if ((frequency > 60) && (frequency < 100)) {
-          ambient.color.setHex(0x2DB4E0);
-          // cube.scale.x = boostScale;
-          // cube.scale.y = boostScale;
-          // cube.scale.z = boostScale;
-          // cube.rotation.x += 0.1;
-        } else if (frequency > 100) {
+      if ((timer > (startTimer + 97)) && (frequency > 110)){
+        console.log(boost);
+        for (var i = 0; i < cubeArray.length; i++){
+          var cube = cubeArray[i];
+          var boostScale = boost/70;
           cube.scale.x = (boostScale +1);
           cube.scale.y = (boostScale +1);
           cube.scale.z = (boostScale +1);
-          // light.intensity += 0
         }
       };
 
-      for (var i = 0; i < cubeArray.length; i++) {
-        var cube = cubeArray[i];
-        if ((timer > 120) && (frequency > 70)) {
-          // console.log(rotate);
+      if ((timer > (startTimer + 135)) && (frequency > 100)){
+        for (var i = 0; i < cubeArray.length; i++) {
+          var cube = cubeArray[i];
           cube.rotation.x += 0.1;
         }
       };
 
-
-
+      if ((timer > (startTimer + 145)) && (frequency > 60)){
+          var cubeIndex = Math.floor(Math.random() * cubeArray.length) 
+          scene.remove(cubeArray[cubeIndex]);
+          cubeArray.splice(cubeIndex, 1);
+        
+      }
 
   }
 
