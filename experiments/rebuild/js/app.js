@@ -3,6 +3,7 @@ var effect, controls;
 var element, container;
 var meshCar;
 var ceilingRoom2;
+var rotatingCube;
 var exceleration = 0;
 var musicStart = false;
 var loader = new THREE.JSONLoader();
@@ -129,7 +130,8 @@ function init() {
       dbcWallZN,
       dbcWallZS,
       dbcWallXE,
-      dbcWallXW
+      dbcWallXW,
+      rotatingCube
     );
 
     // Adding the car object
@@ -189,6 +191,8 @@ function init() {
   
     // console.log(clock.getElapsedTime());
 
+    rotatingCube.rotation.x += 0.005;
+    rotatingCube.rotation.y += 0.01;
 
     var movementSpeed = 0.1;
     var timer = clock.getElapsedTime();
@@ -197,61 +201,61 @@ function init() {
     // var startTimer = 0;
 
       // car movement
-      if ((timer > (startTimer + 24)) && (timer < (startTimer + 56))) {
-       meshCar.rotation.y += 0.01;
-      };      
+      // if ((timer > (startTimer + 24)) && (timer < (startTimer + 56))) {
+      //  meshCar.rotation.y += 0.01;
+      // };      
 
-      if ((timer > (startTimer + 57)) && (timer < (startTimer + 64))) {
-       meshCar.position.y += 0.07;
-      };      
+      // if ((timer > (startTimer + 57)) && (timer < (startTimer + 64))) {
+      //  meshCar.position.y += 0.07;
+      // };      
 
-      if ((timer > (startTimer + 64)) && (timer < (startTimer + 66))) {
-       meshCar.position.y += 0.07;
-       meshCar.rotation.x -= 0.003
+      // if ((timer > (startTimer + 64)) && (timer < (startTimer + 66))) {
+      //  meshCar.position.y += 0.07;
+      //  meshCar.rotation.x -= 0.003
 
-      };      
+      // };      
 
-      if ((timer > (startTimer + 66)) && (timer < (startTimer + 70))) {
-       meshCar.position.z += 0.8;
-       meshCar.position.y += 0.8;
-        // meshCar.rotation.z += 0.03;
-      };      
+      // if ((timer > (startTimer + 66)) && (timer < (startTimer + 70))) {
+      //  meshCar.position.z += 0.8;
+      //  meshCar.position.y += 0.8;
+      //   // meshCar.rotation.z += 0.03;
+      // };      
 
 
-      // GRAVITY
-      if ((timer > (beginWait + 1)) && (camera.position.y > 14) && (timer < (startTimer + 50))) {  //(timer < (beginWait +  2.84)
-        camera.position.y -= (movementSpeed * exceleration);
-        exceleration += 0.5;
-      };
+      // // GRAVITY
+      // if ((timer > (beginWait + 1)) && (camera.position.y > 14) && (timer < (startTimer + 50))) {  //(timer < (beginWait +  2.84)
+      //   camera.position.y -= (movementSpeed * exceleration);
+      //   exceleration += 0.5;
+      // };
 
-      // camera movement
-      if ((timer > (startTimer + 1)) && (timer < (startTimer +  6.5))) {
-       camera.position.x -= movementSpeed;
-       camera.position.z += movementSpeed;
-      };
+      // // camera movement
+      // if ((timer > (startTimer + 1)) && (timer < (startTimer +  6.5))) {
+      //  camera.position.x -= movementSpeed;
+      //  camera.position.z += movementSpeed;
+      // };
       
-      if ((timer > (startTimer + 6.5)) && (timer < (startTimer + 24))) {
-      	camera.position.x -= movementSpeed;
-        // camera.position.z += movementSpeed;
-      };
+      // if ((timer > (startTimer + 6.5)) && (timer < (startTimer + 24))) {
+      // 	camera.position.x -= movementSpeed;
+      //   // camera.position.z += movementSpeed;
+      // };
 
-      if ((timer > (startTimer + 23.9)) && (timer < (startTimer + 40))) {
-        // camera.position.x -= movementSpeed;
-        camera.position.z += movementSpeed;
-      };
+      // if ((timer > (startTimer + 23.9)) && (timer < (startTimer + 40))) {
+      //   // camera.position.x -= movementSpeed;
+      //   camera.position.z += movementSpeed;
+      // };
 
-      if ((timer > (startTimer + 66)) && (timer < (startTimer + 76))) {
-        // camera.position.x -= movementSpeed;
-        camera.position.y += (movementSpeed * 8);
-      };
+      // if ((timer > (startTimer + 66)) && (timer < (startTimer + 76))) {
+      //   // camera.position.x -= movementSpeed;
+      //   camera.position.y += (movementSpeed * 8);
+      // };
 
 
-      // ceiling movement
-      if ((timer > (startTimer + 43)) && (timer < (startTimer + 64))) {
-        // camera.position.x -= movementSpeed;
-        // camera.position.z += movementSpeed;
-        ceilingRoom2.position.x -= movementSpeed;
-      };
+      // // ceiling movement
+      // if ((timer > (startTimer + 43)) && (timer < (startTimer + 64))) {
+      //   // camera.position.x -= movementSpeed;
+      //   // camera.position.z += movementSpeed;
+      //   ceilingRoom2.position.x -= movementSpeed;
+      // };
 
 
 
