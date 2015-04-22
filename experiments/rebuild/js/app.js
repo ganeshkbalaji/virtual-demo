@@ -253,7 +253,7 @@ function init() {
         ceilingRoom2.position.x -= movementSpeed;
       };
 
-      
+
 
       if ((!musicStart) && (timer > (startTimer + 75))){
         musicStart = true;
@@ -295,10 +295,23 @@ function init() {
                         dbcWallZS,
                         dbcWallXE,
                         dbcWallXW,
-                        meshCar
+                        meshCar,
+                        light,
+                        ambiLight,
+                        directionalLight1,
+                        directionalLight2,
+                        directionalLight3,
+                        directionalLight4
                       );
         
       }
+
+      var frequency = Math.floor(boost);
+
+      console.log(frequency);
+
+
+
 
   }
 
