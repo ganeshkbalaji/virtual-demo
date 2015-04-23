@@ -10,6 +10,7 @@ var musicStart = false;
 var loader = new THREE.JSONLoader();
 var ambient;
 var endGame = false;
+var firstCubes = false;
 
 var clock = new THREE.Clock(false);
 // clock.start();
@@ -325,10 +326,15 @@ function animate(t) {
 
   console.log(timer + " : " + frequency);
 
-  squareUpper = 130; //space odditty 45
-  squareLower = 100; //space odditty 46
-  sphereUpper = 80;  //space odditty 60
-  sphereLower = 50;  //space odditty 70
+  // squareUpper = 130; //space odditty 45
+  // squareLower = 100; //space odditty 46
+  // sphereUpper = 80;  //space odditty 60
+  // sphereLower = 50;  //space odditty 70
+
+  if ((firstCubes === false) && (frequency > 20) && (timer > (startTimer + 75))) {
+    firstCubes = true;
+    createCubes(10);
+  }
 
   if ((frequency > 90) && (frequency < 110) && (timer > (startTimer + 75)) && (timer < (startTimer + 110))){
     createCubes(1);
@@ -340,7 +346,7 @@ function animate(t) {
     camera.position.y += 1;
   }
 
-  if (timer > (startTimer + 79)){
+  if (timer > (startTimer + 93)){
     if (frequency < 80) {
       ambient.color.setHex(0x2DB4E0);
     } else if ((frequency > 80) && (frequency < 100)) {
@@ -350,7 +356,7 @@ function animate(t) {
     }
   }
 
-  if ((timer > (startTimer + 97)) && (frequency > 110)){
+  if (timer > (startTimer + 107)){
     console.log(boost);
     for (var i = 0; i < cubeArray.length; i++){
       var cube = cubeArray[i];
@@ -361,7 +367,7 @@ function animate(t) {
     }
   };
 
-  if ((timer > (startTimer + 135)) && (frequency > 100)){
+  if ((timer > (startTimer + 117)) && (frequency > 100)){
     for (var i = 0; i < cubeArray.length; i++) {
       var cube = cubeArray[i];
       cube.rotation.x += 0.1;
