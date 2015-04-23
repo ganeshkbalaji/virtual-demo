@@ -54,7 +54,7 @@ function init() {
   // launch pad start position
   camera.position.set( -0, 315, 0);
   // first room start position
-  // camera.position.set( 0, 15, 0);
+  // camera.position.set( 0, 15, 20);
   // TEST Camera position
   // camera.position.set(0,315,0);
 
@@ -202,8 +202,8 @@ function animate(t) {
 
   var movementSpeed = 0.1;
   var timer = clock.getElapsedTime();
-  var beginWait = 0;
-  var startTimer = (2 + beginWait);
+  var beginWait = 10;
+  var startTimer = (20 + beginWait);
 
   // car movement
   if ((timer > (startTimer + 24)) && (timer < (startTimer + 56))) {
