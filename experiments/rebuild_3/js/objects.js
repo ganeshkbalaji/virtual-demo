@@ -146,7 +146,7 @@ andrewframe.position.set(38.50, 20, 25);
 
 var allSealionsframe = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 21, 28, 1, 1, 1), 
 	[ customMaterial.black] );
-allSealionsframe.position.set(-58.50, 17, -10);
+allSealionsframe.position.set(-59, 17, -10);
 
 var allSealions = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 20, 27, 1, 1, 1), 
 	[ customMaterial.allSealions] );
