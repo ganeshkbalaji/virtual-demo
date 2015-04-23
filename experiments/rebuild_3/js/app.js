@@ -52,11 +52,11 @@ function init() {
 
 	camera = new THREE.PerspectiveCamera(90, 1, 0.001, 15000);
   // launch pad start position
-  camera.position.set( -0, 315, 0);
+  camera.position.set( 0, 315, 0);
   // first room start position
   // camera.position.set( 0, 15, 20);
   // TEST Camera position
-  // camera.position.set(0,315,0);
+  // camera.position.set(-100,15,100);
 
   scene.add(camera);
 
@@ -99,48 +99,47 @@ function init() {
   );
 
  	// Adding objects to the scene
-  scene.add(
-    marko,
-    bao,
-    ganesh,
-    andrew,
-    ganeshWallYW,
-    andrewWallYE,
-    baoWallNZ,
-    markoWallZS,
-    room1HallWallXW,
-    room1HallWallXE,
-    room1HallWallZS,
-    room1HallWallZN,
-    room2WallZS,
-    room2WallZN,
-    room2WallXW,
-    room2WallXE,
-    room2WallXEshort,
-    room2HallWallXE,
-    room2HallWallZN,
-    room2HallWallZS,
-    garageDoor,
-    ceilingRoom1,
-    ceilingRoom2,
-    floor,
-    meshdisk,
-    dbcHole,
-    launchPadFloor,
-    launchPadCeiling,
-    launchPadWallZN,
-    launchPadWallZS,
-    launchPadWallXE,
-    launchPadWallXW,
-    dbcWallZN,
-    dbcWallZS,
-    dbcWallXE,
-    dbcWallXW,
-    rotatingCube,
-    markoframe,
-    baoframe,
-    ganeshframe,
-    andrewframe
+  scene.add(marko,
+            bao,
+            ganesh,
+            andrew,
+            ganeshWallYW,
+            andrewWallYE,
+            baoWallNZ,
+            markoWallZS,
+            room1HallWallXW,
+            room1HallWallXE,
+            room1HallWallZS,
+            room1HallWallZN,
+            room2WallZS,
+            room2WallZN,
+            room2WallXW,
+            room2WallXE,
+            room2WallXEshort,
+            room2HallWallXE,
+            room2HallWallZN,
+            room2HallWallZS,
+            garageDoor,
+            ceilingRoom1,
+            ceilingRoom2,
+            floor,
+            meshdisk,
+            dbcHole,
+            launchPadFloor,
+            launchPadCeiling,
+            launchPadWallZN,
+            launchPadWallZS,
+            launchPadWallXE,
+            launchPadWallXW,
+            dbcWallZN,
+            dbcWallZS,
+            dbcWallXE,
+            dbcWallXW,
+            rotatingCube,
+            markoframe,
+            baoframe,
+            ganeshframe,
+            andrewframe
   );
 
   // Adding the car object

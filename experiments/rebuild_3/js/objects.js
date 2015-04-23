@@ -62,7 +62,7 @@ var customMaterial = {
 	}),
 
 	dbcLogo: new THREE.MeshLambertMaterial({
-	  map: THREE.ImageUtils.loadTexture('images/dbcLogo.png')
+	  	map: THREE.ImageUtils.loadTexture('images/dbcLogo.png')
 	}),
 
 	sealions: new THREE.MeshLambertMaterial({
@@ -81,9 +81,9 @@ var customMaterial = {
 		map: THREE.ImageUtils.loadTexture('images/futureWall.png')
 	}),
 
-	// blackFrame: new THREE.MeshBasicMaterial({color: 0x000000}),
-
-
+	metalDoor: new THREE.MeshLambertMaterial({
+		map: THREE.ImageUtils.loadTexture('images/metalDoor.png')
+	}),
 }
 
 var meshdisk = new THREE.Mesh( new THREE.RingGeometry( 0, 25, 30 ),
@@ -96,19 +96,19 @@ var floor = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(25
 floor.position.set(-85,0,80);
 
 var garageDoor = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 23, 40, 1, 1, 1),
-	[customMaterial.garageDoor] );
+	[customMaterial.metalDoor] );
 garageDoor.position.set(-42, 15, 100);
 
 var room2HallWallZS = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 50, 20, 1, 1, 1),
-	[ customMaterial.wood ] );
+	[ customMaterial.futureWall ] );
 room2HallWallZS.position.set(-156, 5, 150);
 
 var room2HallWallZN = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 50, 20, 1, 1, 1),
-	[ customMaterial.wood ] );
+	[ customMaterial.futureWall ] );
 room2HallWallZN.position.set(-56, 5, 150);
 
 var room2HallWallXE = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(110, 50, 2, 1, 1, 1),
-	[ customMaterial.wood ] );
+	[ customMaterial.futureWall ] );
 room2HallWallXE.position.set(-75, 5, 161);
 
 var marko = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 10, 10, 1, 1, 1),
