@@ -84,6 +84,11 @@ var customMaterial = {
 	metalDoor: new THREE.MeshLambertMaterial({
 		map: THREE.ImageUtils.loadTexture('images/metalDoor.png')
 	}),
+
+	allSealions: new THREE.MeshLambertMaterial({
+		map: THREE.ImageUtils.loadTexture('images/allSealions.jpg')
+	}),
+
 }
 
 var meshdisk = new THREE.Mesh( new THREE.RingGeometry( 0, 25, 30 ),
@@ -142,6 +147,14 @@ ganeshframe.position.set(38.50, 20, 9);
 var andrewframe = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 11,11, 1, 1, 1), 
 	[ customMaterial.black] );
 andrewframe.position.set(38.50, 20, 25);
+
+var allSealionsframe = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 21, 28, 1, 1, 1), 
+	[ customMaterial.black] );
+allSealionsframe.position.set(-58.50, 17, -10);
+
+var allSealions = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 20, 27, 1, 1, 1), 
+	[ customMaterial.allSealions] );
+allSealions.position.set(-58, 17, -10);
 
 var ganeshWallYW = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(100, 50, 2, 1, 1, 1),
 	[ customMaterial.futureWall ] );

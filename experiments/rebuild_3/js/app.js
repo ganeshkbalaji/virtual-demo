@@ -52,9 +52,9 @@ function init() {
 
 	camera = new THREE.PerspectiveCamera(90, 1, 0.001, 15000);
   // launch pad start position
-  camera.position.set( 0, 315, 0);
+  // camera.position.set( 0, 315, 0);
   // first room start position
-  // camera.position.set( 0, 15, 20);
+  camera.position.set( 0, 15, 0);
   // TEST Camera position
   // camera.position.set(-100,15,100);
 
@@ -139,7 +139,9 @@ function init() {
             markoframe,
             baoframe,
             ganeshframe,
-            andrewframe
+            andrewframe,
+            allSealions,
+            allSealionsframe
   );
 
   // Adding the car object
