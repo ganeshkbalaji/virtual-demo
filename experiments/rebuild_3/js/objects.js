@@ -49,9 +49,9 @@ var customMaterial = {
 
 	foggy: new THREE.MeshBasicMaterial( { color: '#BFEFFF', side: THREE.DoubleSide } ),
 
-	garageDoor: new THREE.MeshLambertMaterial({
-		map: THREE.ImageUtils.loadTexture('images/garagedoor.jpg')
-	}),
+	// garageDoor: new THREE.MeshLambertMaterial({
+	// 	map: THREE.ImageUtils.loadTexture('images/garagedoor.jpg')
+	// }),
 
 	officeCeiling: new THREE.MeshLambertMaterial({
 		map: THREE.ImageUtils.loadTexture('images/officeCeiling.png')
@@ -100,10 +100,6 @@ var floor = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(25
     [ customMaterial.grayFloor ] );
 floor.position.set(-85,0,80);
 
-var garageDoor = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 23, 40, 1, 1, 1),
-	[customMaterial.metalDoor] );
-garageDoor.position.set(-42, 15, 100);
-
 var room2HallWallZS = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 50, 20, 1, 1, 1),
 	[ customMaterial.futureWall ] );
 room2HallWallZS.position.set(-156, 5, 150);
@@ -118,19 +114,19 @@ room2HallWallXE.position.set(-75, 5, 161);
 
 var marko = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 10, 10, 1, 1, 1),
 	[ customMaterial.markopic] );
-marko.position.set(38, 20, -25);
+marko.position.set(37.50, 20, -25);
 
-var bao = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 10, 10, 1, 1, 1),
+var bao = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 10, 8, 1, 1, 1),
 	[ customMaterial.baopic] );
-bao.position.set(38, 20, -8);
+bao.position.set(37.50, 20, -8);
 
-var ganesh = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 10, 10, 1, 1, 1),
+var ganesh = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 10, 6, 1, 1, 1),
 	[ customMaterial.ganeshpic] );
-ganesh.position.set(38, 20, 9);
+ganesh.position.set(37.50, 20, 9);
 
 var andrew = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 10, 10, 1, 1, 1),
 	[ customMaterial.andrewpic] );
-andrew.position.set(38, 20, 25);
+andrew.position.set(37.50, 20, 25);
 
 var markoframe = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 11,11, 1, 1, 1), 
 	[ customMaterial.black] );
@@ -199,6 +195,10 @@ room2WallZS.position.set(-148, 5, 90.5);
 var room2WallZN = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(2, 50, 100, 1, 1, 1),
 	[ customMaterial.futureWall ] );
 room2WallZN.position.set(-40, 5, 90);
+
+var garageDoor = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(.1, 23, 40, 1, 1, 1),
+	[customMaterial.metalDoor] );
+garageDoor.position.set(-42, 15, 100);
 
 var room2WallXW = THREE.SceneUtils.createMultiMaterialObject( new THREE.BoxGeometry(82, 50, 2, 1, 1, 1),
 	[ customMaterial.futureWall ] );
