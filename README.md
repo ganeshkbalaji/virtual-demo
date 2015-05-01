@@ -2,8 +2,6 @@
 
 ###### A virtual reality music experience created with Three.js and Web Audio
 
----
-
 Designed for iOS/Android and Google Cardboard
 
 [PLAY](http://sealions-vr.github.io)
@@ -11,8 +9,8 @@ Designed for iOS/Android and Google Cardboard
 ---
 
 ### Team
-* [Andrew Dye](https://github.com/adye20)
 * [Bao Tran](https://github.com/baottran)
+* [Andrew Dye](https://github.com/adye20)
 * [Ganesh Balaji](https://github.com/ganeshkbalaji)
 * [Marko Anton Potocnik](https://github.com/antonpot)
 
