@@ -13,14 +13,13 @@ var endGame = false;
 var firstCubes = false;
 
 var clock = new THREE.Clock(false);
-// clock.start();
-// clock.stop();
 
 init();
 animate();
 
+//dots for loading screen
+
 var dotsInterval = window.setInterval(function() {
-   // console.log("dots");
   if($('#loading_dots').text().length < 3) {
     $('#loading_dots').text($('#loading_dots').text() + '.');
   }
@@ -29,14 +28,11 @@ var dotsInterval = window.setInterval(function() {
   }
 }, 500);
 
+// startButton 
+
 function startButton(){
-  // vrStart = true;
-  // source.start(0);
   clock.start();
   source.start(0);
-  // source.noteOn(0);
-  // source.start(1000);
-  // setTimeout(function(){source.start(0)},15000);
   $('#goButton').remove();
 }
 
@@ -51,12 +47,17 @@ function init() {
 	effect = new THREE.StereoEffect(renderer);
 	scene = new THREE.Scene();
 
-	camera = new THREE.PerspectiveCamera(90, 1, 0.001, 15000);
-  // launch pad start position
+	
+
+  // launch pad start position =================================
+
+  camera = new THREE.PerspectiveCamera(90, 1, 0.001, 15000);
   camera.position.set( 0, 315, 0);
-  // first room start position
+
+  // FOR TESTING: first room start position ====================
   // camera.position.set( 0, 15, 0);
-  // TEST Camera position
+
+  // FOR TESTING: Camera position ==============================
   // camera.position.set(-100,15,100);
 
   scene.add(camera);
@@ -72,7 +73,8 @@ function init() {
   controls.noPan = true;
 
   function setOrientationControls(e) {
-  	if (!e.alpha) {
+
+  	if (!e.alpha) { 
   		return;
   	}
 
@@ -88,6 +90,8 @@ function init() {
   window.addEventListener('deviceorientation', setOrientationControls, true);
 
   // Adding light to the scene
+  // lights defined in lights.js file 
+
   var ambiLight1 = new THREE.AmbientLight( 0x404040 ); // soft white light
 
   scene.add(
@@ -99,7 +103,8 @@ function init() {
     directionalLight4
   );
 
- 	// Adding objects to the scene
+ 	// Adding objects to the scene ==========================
+
   scene.add(marko,
             bao,
             ganesh,
@@ -145,7 +150,8 @@ function init() {
             allSealionsframe
   );
 
-  // Adding the car object
+  // Adding the car object ===============================
+
   loader.load('car.js', function (geometry, materials) {
 
     meshCar = new THREE.Mesh(
@@ -166,6 +172,8 @@ function init() {
     render();
   });
 
+  // adjust window to different sizes =====================
+
   window.addEventListener('resize', resize, false);
   setTimeout(resize, 1);
 }
@@ -180,6 +188,8 @@ function init() {
   renderer.setSize(width, height);
   effect.setSize(width, height);
 }
+
+// Animate the screen by rendering it recurisvely
 
 function update(dt) {
   resize();
@@ -254,15 +264,15 @@ function animate(t) {
   };
 
   // ceiling movement
+
   if ((timer > (startTimer + 43)) && (timer < (startTimer + 64))) {
     ceilingRoom2.position.x -= movementSpeed;
   };
 
-
+  // start music 
 
   if ((!musicStart) && (timer > (startTimer + 75))){
     musicStart = true;
-    // console.log
     console.log("removing : " + musicStart);
     scene.remove( marko,
                   bao,
@@ -307,29 +317,22 @@ function animate(t) {
                   baoframe,
                   ganeshframe,
                   andrewframe
-                // ambiLight,
-                // directionalLight1,
-                // directionalLight2,
-                // directionalLight3,
-                // directionalLight4
               );
+
+    //set new camera position
     camera.position.set(0, 200, 0);
 
+    //set new lights
     ambient = new THREE.AmbientLight( 0xffffff );
     ambient.color.setHSL( 0.5, 0.5, 0.2 );
     scene.add( ambient );
-
-
   }
+
+  //frequency 
 
   var frequency = Math.floor(boost);
 
   console.log(timer + " : " + frequency);
-
-  // squareUpper = 130; //space odditty 45
-  // squareLower = 100; //space odditty 46
-  // sphereUpper = 80;  //space odditty 60
-  // sphereLower = 50;  //space odditty 70
 
   if ((firstCubes === false) && (frequency > 20) && (timer > (startTimer + 75))) {
     firstCubes = true;
@@ -338,7 +341,6 @@ function animate(t) {
 
   if ((frequency > 90) && (frequency < 110) && (timer > (startTimer + 75)) && (timer < (startTimer + 110))){
     createCubes(1);
-    // console.log("CUBE!");
   }
 
   if (timer > (startTimer + 75)){
