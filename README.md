@@ -1,12 +1,16 @@
 # Intergalactic VR
 
-### A virtual reality experience created with three js
+###### A virtual reality music experience created with Three.js and Web Audio
+
+---
 
 Designed for iOS/Android and Google Cardboard
 
 [PLAY](http://sealions-vr.github.io)
 
-Team:
+---
+
+### Team
 * [Andrew Dye](https://github.com/adye20)
 * [Bao Tran](https://github.com/baottran)
 * [Ganesh Balaji](https://github.com/ganeshkbalaji)
@@ -14,10 +18,32 @@ Team:
 
 April 2015 - Dev Bootcamp SF Sealions 
 
-Screenshots:
+---
+
+### Screenshots:
 
 ![car](images/car.jpg)
 
 ![blocks](images/blocks.jpg)
+
+---
+
+### Developer Notes
+
+Let's put some code discussion here
+
+---
+
+### User Testing 
+
+Pics of SeaLions 
+
+---
+
+#### Thanks! 
+
+Team Photo? 
+
+
 
 
