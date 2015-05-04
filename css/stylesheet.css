@@ -20,6 +20,7 @@ body {
 	flex-direction: column;
 	flex-wrap: wrap;
 	align-items: center;
+	background-color: black;
 
-	background-image: url("../images/background.png");
+	/*background-image: url("../images/background.png");*/
 }
