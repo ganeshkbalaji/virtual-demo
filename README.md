@@ -7,7 +7,7 @@ Three.js library allowed for rendering of 3D world and camera track movement. Ta
 
 Designed for iOS/Android and Google Cardboard
 
-[PLAY](http://sealions-vr.github.io)
+[PLAY](http://ganeshkbalaji.github.io/virtual-demo/)
 
 ---
 
